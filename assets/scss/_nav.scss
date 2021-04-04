@@ -84,9 +84,13 @@
 				width: 100%;
 				background-color: $color-white;
 				padding: 38px 120px;
+				padding-top: unset;
+				padding-bottom: unset;
 				opacity: 1;
-				display: none;
+// 				display: none;
 				line-height: 2;
+				height: 0;
+				overflow: hidden;
 				color: $color-gray1;
 				@include transition-all;
 				@media only screen and (max-width: 768px) {

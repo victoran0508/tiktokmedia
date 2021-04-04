@@ -61,7 +61,7 @@
 
 		dl {
 			background: $color-white;
-			font: 14px / 22px "YuGothic";
+			font: 14px / 22px "Noto Sans JP";
 			color: #111111;
 			padding-top: 40px;
 			border-radius: 10px;
@@ -89,6 +89,7 @@
                 	padding-bottom: 15px;
                 	padding-top: 15px;
                 	border-bottom: 1px solid #BBBBBB;
+                	@include transition-all;
                 	&:first-of-type {
                     	padding-top: unset;
                     }
@@ -105,6 +106,7 @@
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: 180%;
+                        @include transition-all;
                 	}
 
                 	summary {
@@ -115,10 +117,15 @@
 						-webkit-box-orient: vertical;
 						overflow: hidden;
 						text-overflow: ellipsis;
+                	}
 
-						a:hover {
-							text-decoration: underline !important;
-						}
+                	&:hover {
+                		.thumb {
+                			opacity: 0.7;
+                		}
+                		summary a {
+                			text-decoration: underline !important;
+                		}
                 	}
                 }
 
@@ -387,8 +394,8 @@
 	white-space: nowrap;
 	padding-left: 1.8em;
 	padding-right: 0.8em;
-	padding-top: 0.7em;
-	padding-bottom: 0.7em;
+	padding-top: 0.55em;
+	padding-bottom: 0.55em;
 	border-radius: 1.7em;
 	border: 1px solid #111111;
 	margin: 5px 5px;
@@ -482,7 +489,7 @@ section.hero {
 		}
 	
 		summary {
-			font-family: "YuGothic";
+			font-family: "Noto Sans JP";
 			font-size: 20px;
 			font-weight: normal;
 			line-height: 1.5;
@@ -549,7 +556,7 @@ section {
 				font: bold 80px/1.2 "Montserrat";
 				span {
                     display: block;
-                    font: bold 24px/1.3 "YuGothic";
+                    font: bold 24px/1.3 "Noto Sans JP";
 				}
 
 				@media (max-width: 768px) {
@@ -566,7 +573,7 @@ section {
 			.decription {
 				p {
 					text-align: left;
-					font: 16px/1.8 "YuGothic";
+					font: 16px/1.8 "Noto Sans JP";
 					font-weight: 500;
 	
 					@media only screen and (max-width: 768px) {
@@ -587,7 +594,7 @@ section {
 			}
             .explanation {
             	text-align: left;
-            	font: 16px/1.8 "YuGothic";
+            	font: 16px/1.8 "Noto Sans JP";
             	font-weight: 500;
 
             	@media only screen and (max-width: 768px) {
@@ -702,6 +709,10 @@ section {
 								}
                 			}
                 		}
+
+                		&:hover {
+                			box-shadow: 0 5px 10px rgba(0,0,0,0.16);
+                		}
                 	}
                 }
 			}
@@ -782,7 +793,7 @@ section {
 			}
 
 			.text {
-                font: bold 20px/1.75 "YuGothic";
+                font: bold 20px/1.75 "Noto Sans JP";
                 color: #111111;
 			}
 
@@ -918,8 +929,14 @@ section {
 								width: 2em;
 								display: block;
 								border-radius: 50%;
+								border: 1px solid $color-white;
 								text-align: center;
 								transform: translate(-50%, -50%);
+								z-index: 1;
+
+								@media only screen and (max-width: 768px) {
+									font-size: 2.66vw;
+								}
 							}
 
 							img {
@@ -945,7 +962,7 @@ section {
 								}
 
 
-								font: bold 16px/ 1.5 "YuGothic";
+								font: bold 16px/ 1.5 "Noto Sans JP";
 								@media (max-width: 768px) {
 									font-size: 3.73vw;
 									line-height: 1.5;
@@ -953,8 +970,12 @@ section {
 							}
 
 							&:hover {
+								img {
+									opacity: 0.7;
+								}
+
 								p {
-									text-decoration: underline !important;
+									text-decoration: underline;
 								}
 							}
 						}
@@ -996,7 +1017,11 @@ section {
 
 			@media (max-width: 768px) {
 				.ranking-panel, .tag-panel {
-					width: 100%;
+					width: auto;
+					padding-left: unset;
+					padding-right: unset;
+					margin-left: 6.4vw;
+					margin-right: 6.4vw;
 				}
 
 				.ranking-panel {
@@ -1046,7 +1071,7 @@ section {
 					}
 
 					p {
-						font: bold 16px/1.5 "YuGothic";
+						font: bold 16px/1.5 "Noto Sans JP";
 						margin-top: 1.25em;
 					}
 
@@ -1065,7 +1090,7 @@ section {
 					text-align: center;
 					margin-top: 80px;
 					a {
-						font: bold 16px/3.5 "YuGothic";
+						font: bold 16px/3.5 "Noto Sans JP";
 						@media(max-width: 768px) {
 							font-size: 3.73vw;
 							width: 12em;
@@ -1109,7 +1134,7 @@ section {
 			}
 
 			h1 {
-				font: bold 28px / 1.5 "YuGothic";
+				font: bold 28px / 1.5 "Noto Sans JP";
 				margin-bottom: 0.5em;
 			}
 
@@ -1152,12 +1177,12 @@ section {
 				margin-left: -6.4vw;
 				margin-right: -6.4vw;
 			}
-			font: 12px / 1.6 "YuGothic";
+			font: 12px / 1.6 "Noto Sans JP";
 			color: #111111;
 			background: $color-white;
 
 			h2 {
-				font: bold 20px / 1.5 "YuGothic";
+				font: bold 20px / 1.5 "Noto Sans JP";
 				padding-bottom: 0.6em;
 				margin-top: 2em;
 				margin-bottom: 2em;
@@ -1165,14 +1190,14 @@ section {
 			}
 
 			h3 {
-				font: bold 18px / 1.5 "YuGothic";
+				font: bold 18px / 1.5 "Noto Sans JP";
 				padding: 1em;
 				background: #F2F2F2;
 				margin-bottom: 2em;
 			}
 
 			h4 {
-				font: bold 18px / 1.7 "YuGothic";
+				font: bold 18px / 1.7 "Noto Sans JP";
 				color: #111111;
 				margin-bottom: 2em;
 			}
@@ -1236,7 +1261,7 @@ section {
 
 			table {
 				th, td {
-					font: 14px/1.8 YuGothic;
+					font: 14px/1.8 Noto Sans JP;
 					border: 1px solid #BBBBBB;
 					padding-top: 1.2em;
 					padding-bottom: 1.2em;
@@ -1273,7 +1298,7 @@ section {
 					font-size: 4.2vw;
 				}
 
-				li {
+				ul li, ol li {
 					font-size: 4.2vw;
 				}
 
@@ -1356,7 +1381,7 @@ section {
 				margin-right: -6.4vw;
 			}
 			dt {
-                font: bold 20px / 1.5 "YuGothic";
+                font: bold 20px / 1.5 "Noto Sans JP";
                 margin-bottom: 1.6em;
                 @media only screen and (max-width: 768px) {
 					font-size: 5.33vw;
@@ -1364,7 +1389,7 @@ section {
 			}
 			dd {
 				@include display-flex;
-				font: 14px / 1.8 "YuGothic";
+				font: 14px / 1.8 "Noto Sans JP";
 				font-weight: 700;
 				@media only screen and (max-width: 768px) {
 					font-size: 3.73vw;

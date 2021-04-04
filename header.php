@@ -80,7 +80,7 @@
                                     <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                                 </div>
                             </div>
-                            <p>Copyright © 2021 Star Music Entertainment Inc. All rights reserved. </p>
+                            <p>Copyright © 2021 Star Music Entertainment Inc. <br class="sp">All rights reserved. </p>
                         </div>
                     </div>
                 </div>

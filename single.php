@@ -45,7 +45,10 @@
                             <?php
                                 $writer = wp_get_single_post(get_post_meta( $post->ID, 'writer', true));
                             ?>
-                            <div class="avatar"><img src="<?php echo get_the_post_thumbnail_url(get_post_meta( $post->ID, 'writer', true)); ?>"></div>
+                            <div class="avatar">
+                                <!-- img src="<?php // echo get_the_post_thumbnail_url(get_post_meta( $post->ID, 'writer', true)); ?>" -->
+                                <?php echo get_the_post_thumbnail( get_post_meta( $post->ID, 'writer', true), array(120, 120) ); ?>
+                            </div>
                             <span class="intro">
                                 <b><?php echo get_post_meta(get_post_meta( $post->ID, 'writer', true), 'name', true); ?></b><br>
                                 <small class="pc tb"><?php echo get_post_meta(get_post_meta( $post->ID, 'writer', true), 'intro', true); ?></small>
