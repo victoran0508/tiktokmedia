@@ -47,6 +47,9 @@
 	@include display-flex;
 	@include justify-content-center;
 	@extend .w1080;
+	@media only screen and (max-width: 768px) {
+		@include flex-direction-column;
+	}
 
 	> .main {
 		@include flex(1 1 auto);
@@ -59,12 +62,25 @@
 		padding-top: 160px;
 		margin-bottom: 120px;
 
+		@media only screen and (max-width: 768px) {
+			width: 100vw;
+			@include flex(none);
+			padding-left: 6.4vw;
+			padding-right: 6.4vw;
+			padding-top: 21.33vw;
+		}
+
 		dl {
 			background: $color-white;
-			font: 14px / 22px "Noto Sans JP";
+			font: 14px / 22px "YuGothic", "Yu Gothic Medium";
 			color: #111111;
-			padding-top: 40px;
+			padding: 40px 20px 20px;
 			border-radius: 10px;
+			@media only screen and (max-width: 768px) {
+				padding-left: unset;
+				padding-right: unset;
+				padding-bottom: unset;
+			}
 
 			dt {
 				margin-bottom: 40px;
@@ -72,17 +88,147 @@
                 	text-align: center;
                 	font-size: 24px;
                 	font-weight: bold;
-                	
+
                 	small {
                 		font-size: 14px;
                         line-height: 1.5;
                         display: block;
+                        margin-top: 0.8em;
+                	}
+
+                	@media only screen and (max-width: 768px) {
+                		font-size: 8.53vw;
+
+                		small {
+                			font-size: 3.73vw;
+                		}
                 	}
                 }
 			}
 
 			dd {
-                padding: 0 20px 26px;
+                /* padding: 0 20px 26px; */
+
+                ul {
+                	list-style: none;
+					margin-left: -20px;
+					margin-right: -20px;
+					@media (max-width: 768px) {
+						margin-left: -6.4vw;
+						margin-right: -6.4vw;
+					}
+					font-size: 0;
+
+					.item {
+						display: inline-block;
+						height: 480px;
+						margin-bottom: 40px;
+						@media (max-width: 768px) {
+							height: 120vw;
+							margin-bottom: 6.4vw;
+						}
+						position: relative;
+						vertical-align: top;
+
+						@media (max-width: 768px) {
+							width: 100%;
+							margin-bottom: 6.4vw;
+						}
+
+						dl {
+							margin-left: 20px;
+							margin-right: 20px;
+							@media (max-width: 768px) {
+								margin-left: 6.4vw;
+								margin-right: 6.4vw;
+							}
+							background: $color-white;
+							height: 100%;
+							border-radius: 10px;
+
+							dt {
+								> a:hover {
+									opacity: 0.6;
+
+									img {
+										@include transition-all;
+										opacity: 0.7;
+									}
+								}
+								@media (max-width: 768px) {
+									img {
+										width: 100%;
+									}
+								}
+
+								p {
+									font-size: 16px;
+									line-height: 1.5;
+									margin-bottom: 1em;
+									padding: 40px 20px 0;
+									font-weight: 700;
+
+									@media (max-width: 768px) {
+										font-size: 4.2vw;
+										padding: 5vw 5vw 0;
+									}
+								}
+
+								div {
+									margin-left: -5px;
+									margin-right: -5px;
+									line-height: 40px;
+									padding: 0 20px;
+									@media (max-width: 768px) {
+										line-height: 12vw;
+										padding: 0 5vw;
+									}
+								}
+							}
+
+							.datetime {
+								position: absolute;
+								left: 40px;
+								bottom: 20px;
+								@media (max-width: 768px) {
+									left: 11.4vw;
+									bottom: 5vw;
+								}
+								span {
+									font: 14px/1.3 "Montserrat";
+									font-weight: 600;
+									color: #555555;
+
+									@media (max-width: 768px) {
+										font-size: 3.73vw;
+									}
+								}
+							}
+
+							&:hover {
+								box-shadow: 0 5px 10px rgba(0,0,0,0.16);
+							}
+						}
+
+						&.item--document {
+							height: 370px;
+							@media only screen and (max-width: 768px) {
+								height: 96vw;
+							}
+
+							dl dt p {
+								padding-left: 60px;
+								background: left 20px top 40px url(../img/document-pdf.png) no-repeat;
+								background-size: 20px;
+								@media only screen and (max-width: 768px) {
+									padding-left: 14vw;
+									background: left 5vw top 5vw url(../img/document-pdf.png) no-repeat;
+									background-size: 5vw;
+								}
+							}
+						}
+					}
+                }
 
                 article {
                 	display: flex;
@@ -124,7 +270,7 @@
                 			opacity: 0.7;
                 		}
                 		summary a {
-                			text-decoration: underline !important;
+                			opacity: 0.6;
                 		}
                 	}
                 }
@@ -183,6 +329,15 @@
 
 		@media only screen and (max-width: 768px) {
 			display: none;
+
+            &.sidebar--document {
+            	display: block;
+            }
+		}
+
+		&.sidebar--document dl {
+			background: transparent;
+			padding-top: unset;
 		}
 	}
 }
@@ -375,7 +530,7 @@
 			}
 
 			&:hover {
-				text-decoration: underline !important;
+				opacity: 0.6;
 			}
 		}
 	}
@@ -489,7 +644,7 @@ section.hero {
 		}
 	
 		summary {
-			font-family: "Noto Sans JP";
+			font-family: "YuGothic", "Yu Gothic Medium";
 			font-size: 20px;
 			font-weight: normal;
 			line-height: 1.5;
@@ -501,7 +656,7 @@ section.hero {
 			}
 
 			a:hover {
-				text-decoration: underline !important;
+				opacity: 0.6;
 			}
 		}
 
@@ -556,7 +711,7 @@ section {
 				font: bold 80px/1.2 "Montserrat";
 				span {
                     display: block;
-                    font: bold 24px/1.3 "Noto Sans JP";
+                    font: bold 24px/1.3 "YuGothic", "Yu Gothic Medium";
 				}
 
 				@media (max-width: 768px) {
@@ -573,7 +728,7 @@ section {
 			.decription {
 				p {
 					text-align: left;
-					font: 16px/1.8 "Noto Sans JP";
+					font: 16px/1.8 "YuGothic", "Yu Gothic Medium";
 					font-weight: 500;
 	
 					@media only screen and (max-width: 768px) {
@@ -594,7 +749,7 @@ section {
 			}
             .explanation {
             	text-align: left;
-            	font: 16px/1.8 "Noto Sans JP";
+            	font: 16px/1.8 "YuGothic", "Yu Gothic Medium";
             	font-weight: 500;
 
             	@media only screen and (max-width: 768px) {
@@ -632,7 +787,7 @@ section {
 						height: 120vw;
 						margin-bottom: 6.4vw;
 					}
-                	position: relative;
+					position: relative;
                 	vertical-align: top;
 
                 	@media (max-width: 768px) {
@@ -650,10 +805,28 @@ section {
                 		background: $color-white;
                 		height: 100%;
                 		border-radius: 10px;
+                		position: relative;
+
+                        > a {
+                        	content: "";
+                			position: absolute;
+                			display: block;
+                			left: 0;
+                			top: 0;
+                			right: 0;
+                			bottom: 0;
+                			background: white;
+                			opacity: 0;
+                			@include transition-all;
+                        }
+
+                		> a:hover {
+                			opacity: 0.3;
+                		}
 
                 		dt {
                 			> a:hover {
-                				text-decoration: underline !important;
+                				opacity: 0.6;
 
                 				img {
                 					@include transition-all;
@@ -714,6 +887,24 @@ section {
                 			box-shadow: 0 5px 10px rgba(0,0,0,0.16);
                 		}
                 	}
+
+                	&.item--document {
+						height: 370px;
+						@media only screen and (max-width: 768px) {
+							height: 96vw;
+						}
+
+						dl dt p {
+							padding-left: 60px;
+							background: left 20px top 40px url(../img/document-pdf.png) no-repeat;
+							background-size: 20px;
+							@media only screen and (max-width: 768px) {
+								padding-left: 14vw;
+								background: left 5vw top 5vw url(../img/document-pdf.png) no-repeat;
+								background-size: 5vw;
+							}
+						}
+					}
                 }
 			}
 
@@ -726,7 +917,7 @@ section {
 
 				a {
 					&:not(.btn):hover {
-                        text-decoration: underline !important;
+                        opacity: 0.6;
 					}
 
 					i {
@@ -793,7 +984,7 @@ section {
 			}
 
 			.text {
-                font: bold 20px/1.75 "Noto Sans JP";
+                font: bold 20px/1.75 "YuGothic", "Yu Gothic Medium";
                 color: #111111;
 			}
 
@@ -807,7 +998,7 @@ section {
 
 				a {
 					&:hover {
-                        text-decoration: underline !important;
+                        opacity: 0.6;
 					}
 
 					i {
@@ -944,6 +1135,7 @@ section {
 								margin-right: 20px;
 								border-radius: 5px;
 								display: inline-block;
+								@include transition-all;
 								@media (max-width: 768px) {
 									height: 20vw;
 								}
@@ -962,7 +1154,7 @@ section {
 								}
 
 
-								font: bold 16px/ 1.5 "Noto Sans JP";
+								font: bold 16px/ 1.5 "YuGothic", "Yu Gothic Medium";
 								@media (max-width: 768px) {
 									font-size: 3.73vw;
 									line-height: 1.5;
@@ -975,7 +1167,7 @@ section {
 								}
 
 								p {
-									text-decoration: underline;
+									opacity: 0.6;
 								}
 							}
 						}
@@ -1005,7 +1197,7 @@ section {
 						cursor: pointer;
 
 						&:hover {
-							text-decoration: underline !important;
+							opacity: 0.6;
 						}
 
 						i {
@@ -1061,7 +1253,7 @@ section {
 			}
 
 			.body {
-				.item {
+				/* .item {
 					width: 25%;
 					padding: 20px;
 					height: 400px;
@@ -1071,7 +1263,7 @@ section {
 					}
 
 					p {
-						font: bold 16px/1.5 "Noto Sans JP";
+						font: bold 16px/1.5 "YuGothic", "Yu Gothic Medium";
 						margin-top: 1.25em;
 					}
 
@@ -1084,13 +1276,13 @@ section {
 				    		line-height: 1.5;
 				    	}
 				    }
-				}
+				} */
 
 				> p {
 					text-align: center;
 					margin-top: 80px;
 					a {
-						font: bold 16px/3.5 "Noto Sans JP";
+						font: bold 16px/3.5 "YuGothic", "Yu Gothic Medium";
 						@media(max-width: 768px) {
 							font-size: 3.73vw;
 							width: 12em;
@@ -1134,13 +1326,30 @@ section {
 			}
 
 			h1 {
-				font: bold 28px / 1.5 "Noto Sans JP";
+				font: bold 28px / 1.5 "YuGothic", "Yu Gothic Medium";
 				margin-bottom: 0.5em;
 			}
 
 			.keyword-panel {
 				padding-bottom: 60px;
 			}
+
+            .thumbnail {
+            	margin-left: -40px;
+            	margin-right: -40px;
+                @media only screen and (max-width: 768px) {
+					margin-left: -6.4vw;
+					margin-right: -6.4vw;
+                }
+
+				img {
+					width: 100%;
+
+					@media only screen and (max-width: 768px) {
+						max-width: unset;
+					}
+				}
+            }
 
 			@media only screen and (max-width: 768px) {
 				padding: unset;
@@ -1177,12 +1386,12 @@ section {
 				margin-left: -6.4vw;
 				margin-right: -6.4vw;
 			}
-			font: 12px / 1.6 "Noto Sans JP";
+			font: 12px / 1.6 "YuGothic", "Yu Gothic Medium";
 			color: #111111;
 			background: $color-white;
 
 			h2 {
-				font: bold 20px / 1.5 "Noto Sans JP";
+				font: bold 20px / 1.5 "YuGothic", "Yu Gothic Medium";
 				padding-bottom: 0.6em;
 				margin-top: 2em;
 				margin-bottom: 2em;
@@ -1190,14 +1399,14 @@ section {
 			}
 
 			h3 {
-				font: bold 18px / 1.5 "Noto Sans JP";
+				font: bold 18px / 1.5 "YuGothic", "Yu Gothic Medium";
 				padding: 1em;
 				background: #F2F2F2;
 				margin-bottom: 2em;
 			}
 
 			h4 {
-				font: bold 18px / 1.7 "Noto Sans JP";
+				font: bold 18px / 1.7 "YuGothic", "Yu Gothic Medium";
 				color: #111111;
 				margin-bottom: 2em;
 			}
@@ -1276,7 +1485,7 @@ section {
 
 			a {
 				color: #FE2C55;
-				text-decoration: underline !important;
+				opacity: 0.6;
 
 				&:hover {
 					color: #111111;
@@ -1381,7 +1590,7 @@ section {
 				margin-right: -6.4vw;
 			}
 			dt {
-                font: bold 20px / 1.5 "Noto Sans JP";
+                font: bold 20px / 1.5 "YuGothic", "Yu Gothic Medium";
                 margin-bottom: 1.6em;
                 @media only screen and (max-width: 768px) {
 					font-size: 5.33vw;
@@ -1389,7 +1598,7 @@ section {
 			}
 			dd {
 				@include display-flex;
-				font: 14px / 1.8 "Noto Sans JP";
+				font: 14px / 1.8 "YuGothic", "Yu Gothic Medium";
 				font-weight: 700;
 				@media only screen and (max-width: 768px) {
 					font-size: 3.73vw;
@@ -1532,27 +1741,45 @@ section {
 		cursor: pointer;
 		font-size: 20px;
 		font-weight: bold;
-
-		&:after {
-			content: "";
-			position: absolute;
-			display: none;
-			height: 3em;
-			width: 3em;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background: $color-red;
-			border-radius: 1.5em;
-			z-index: -1;
-		}
 	}
 
-	> *:hover {
-		color: #FFFFFF;
+	span:after {
+		content: "";
+		position: absolute;
+		display: none;
+		height: 3em;
+		width: 3em;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: $color-red;
+		border-radius: 1.5em;
+		z-index: -1;
+	}
+
+	a:after {
+		content: "";
+		position: absolute;
+		height: 3em;
+		width: 3em;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+        border-radius: 50%;
+		border: 2px solid $color-red;
+		z-index: -1;
+		opacity: 1;
+        -webkit-transition: transform .6s cubic-bezier(.6,-.01,.1,1), opacity .6s cubic-bezier(.6,-.01,.1,1) .2s;
+		     -o-transition: transform .6s cubic-bezier(.6,-.01,.1,1), opacity .6s cubic-bezier(.6,-.01,.1,1) .2s;
+			    transition: transform .6s cubic-bezier(.6,-.01,.1,1), opacity .6s cubic-bezier(.6,-.01,.1,1) .2s;
+	}
+
+	> a:hover {
+		color: $color-red;
 
 		&:after {
-			display: block;
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 0;
 		}
 	}
 
@@ -1570,7 +1797,7 @@ section {
 		font-size: 12px;
 
 		&:hover {
-			text-decoration: underline !important;
+			opacity: 0.6;
 		}
 	}
 }
@@ -1585,6 +1812,117 @@ section {
 
 		li.flat {
 			font-size: 3.73vw;
+		}
+	}
+}
+
+.mw_wp_form {
+	.form-title {
+		font: bold 20px/1.5 "YuGothic", "Yu Gothic Medium";
+		color: #111111;
+		padding-bottom: 12px;
+		border-bottom: 2px solid #555555;
+
+		@media only screen and (max-width: 768px) {
+			font-size: 5.33vw;
+		}
+	}
+
+	dl.input {
+		margin-top: 36px;
+		@media only screen and (max-width: 768px) {
+			margin-top: 9.6vw;
+		}
+
+		dt {
+			font: 16px/1.8;
+			color: #111111;
+			@media only screen and (max-width: 768px) {
+				font-size: 4.2vw;
+			}
+
+			.req {
+				color: $color-red;
+				margin-left: 0.5em;
+			}
+		}
+
+		dd {
+			input, select, textarea {
+				margin-top: 8px;
+				width: 100%;
+				margin-bottom: 40px;
+				border: none;
+				background-color: #F2F2F2;
+				padding: 1.4em;
+				font-size: 14px;
+				line-height: 27px;
+				color: #111111;
+				border-radius: 0.4em;
+				@media only screen and (max-width: 768px) {
+					margin-top: 0.5em;
+					margin-bottom: 9vw;
+					font-size: 3.73vw;
+				}
+			}
+
+			select {
+				-moz-appearance:none;
+				-webkit-appearance:none;
+				appearance:none;
+				position: relative;
+				background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+);
+				background-repeat: no-repeat;
+                background-position: right 1em center;
+                background-size: 2em;
+			}
+		}
+	}
+
+	.note {
+		font-size: 12px;
+		margin-top: -2.5em;
+		margin-bottom: 6em;
+		color: #BBBBBB;
+		@media only screen and (max-width: 768px) {
+			font-size: 3.2vw;
+		}
+	}
+
+	.agree {
+		text-align: center;
+		font-size: 16px;
+		line-height: 1.8;
+		margin-bottom: 2.5em;
+
+		@media only screen and (max-width: 768px) {
+			font-size: 4.2vw;
+		}
+	}
+
+	.submit {
+		@include display-flex;
+		@include justify-content-center;
+
+		button[type="submit"] {
+			font-size: 16px;
+			line-height: 1;
+			padding: 1.25em 2.5em;
+			border-radius: 1.75em;
+			border: 1px solid #111111;
+			background: transparent;
+			cursor: pointer;
+			@include transition-all;
+
+			@media only screen and (max-width: 768px) {
+				font-size: 3.73vw;
+			}
+
+			&:hover {
+				background: $color-red;
+				color: $color-white;
+				border-color: $color-red;
+			}
 		}
 	}
 }

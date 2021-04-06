@@ -45,7 +45,7 @@
                     <p class="big">
                         TikTokのビジネス活用についてもっと知りたい方、広告・プロモーションに興味をお持ちの方は、Star Creationへお問い合わせください。
                     </p>
-                    <p class="btn-panel"><a class="btn">お問合せフォームへ</a></p>
+                    <p class="btn-panel"><a href="https://star-creation.com/contact/" class="btn">お問合せフォームへ</a></p>
                 </dd>
             </dl>
         </aside>

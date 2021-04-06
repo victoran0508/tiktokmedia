@@ -25,7 +25,10 @@
             <div class="big-block">
                 <div class="logo-block">
                     <span>TikTokのビジネス活用を語るメディア</span>
-                    <a href="<?php echo home_url(); ?>/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="" /></a>
+                    <a href="<?php echo home_url(); ?>/" class="logo">
+                        <img class="pc tb" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="" />
+                        <img class="sp" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-sp.png" alt="" />
+                    </a>
                 </div>
                 <a class="menu menu--sitemap"><i class="fa fa-grip-lines" aria-hidden="true"></i></a>
                 <div class="menu-popup">
@@ -52,7 +55,7 @@
                             </dl>
                             <dl class="contents">
                                 <dt class="header">CONTENTS</dt>
-                                <a>
+                                <a href="https://star-creation.com/service/">
                                     <dt>SERVICE</dt>
                                     <dd>サービス</dd>
                                 </a>
@@ -64,7 +67,7 @@
                                     <dt>DOCUMENT</dt>
                                     <dd>お役立ち資料</dd>
                                 </a>
-                                <a>
+                                <a href="https://star-creation.com/contact/">
                                     <dt>CONTACT</dt>
                                     <dd>お問い合わせ</dd>
                                 </a>
@@ -73,11 +76,11 @@
                                 <dl class="about">
                                     <dt><a href="<?php home_url(); ?>/terms">利用規約</a></dt>
                                     <dt><a href="<?php home_url(); ?>/privacy">プライバシーポリシー</a></dt>
-                                    <dt><a href="<?php home_url(); ?>/">運営会社</a></dt>
+                                    <dt><a href="https://starmusic.co.jp/">運営会社</a></dt>
                                 </dl>
                                 <div class="sns">
-                                    <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                    <a href="https://twitter.com/star_music_inc"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="https://www.facebook.com/Star-Music-Entertainment-Inc-309575329117117/"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <p>Copyright © 2021 Star Music Entertainment Inc. <br class="sp">All rights reserved. </p>

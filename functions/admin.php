@@ -14,13 +14,30 @@
 				),
 				'hierarchical' => false,
 				'has_archive' => true,
-				'menu_position' => 21,
+				'menu_position' => 22,
 				'public' => true,
                 "supports" => ['title', 'thumbnail'],
             )
         );
 
-		flush_rewrite_rules();
+        // ドキュメント
+        register_post_type('document',
+            array(
+                'labels' => array(
+                    'name' => __('ドキュメント'),
+                    'singular_name' => __('ドキュメント')
+                ),
+                'rewrite' => array(
+                    'slug' => 'document',
+                    'with_front' => false,
+                ),
+                'hierarchical' => false,
+                'has_archive' => true,
+                'menu_position' => 21,
+                'public' => true,
+                "supports" => ['title', 'editor', 'thumbnail'],
+            )
+        );
 
         add_filter( 'manage_writer_posts_columns', 'smashing_writer_columns' );
         function smashing_writer_columns( $columns ) {
@@ -45,5 +62,7 @@
                 echo get_post_meta( $post_id, 'intro', true);
             }
         }
+
+        flush_rewrite_rules();
 	});
 ?>

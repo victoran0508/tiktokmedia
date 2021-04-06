@@ -203,26 +203,18 @@
                     <h3>DOCUMENT<span>お役立ち資料</span></h3>
                 </dt>
                 <dd class="body">
-                    <ul>
-                        <li class="item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document.png">
-                            <p>TikTokプロモーション完全ガイド</p>
-                        </li>
-                        <li class="item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document.png">
-                            <p>TikTokプロモーション完全ガイド</p>
-                        </li>
-                        <li class="item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document.png">
-                            <p>TikTokプロモーション完全ガイド</p>
-                        </li>
-                        <li class="item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document.png">
-                            <p>TikTokプロモーション完全ガイド</p>
-                        </li>
-                    </ul>
+                    <?php
+                        $args = array(
+                            'post_type' => 'document',
+                            'posts_per_page' => 3
+                        );
+                        
+                        query_posts($args);
+                    ?>
+                    <?php get_template_part('document-list'); ?>
+                    <?php wp_reset_query(); ?>
                     <p>
-                        <a class="btn" href="#">無料ダウンロード</a>
+                        <a class="btn" href="<?php home_url(); ?>/document/">無料ダウンロード</a>
                     </p>
                 </dd>
             </dl>
