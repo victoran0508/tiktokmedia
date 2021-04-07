@@ -21,35 +21,30 @@
 {
     font-size: 0;
     line-height: 0;
-
     position: absolute;
     top: 50%;
-
     display: block;
-
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     cursor: pointer;
-
     color: transparent;
     border: none;
     outline: none;
     background: white;
     border-radius: 50%;
+    background-color: #111111;
+    transition: all 0.3s ease;
 }
 .slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus
+.slick-next:hover
 {
     color: transparent;
     outline: none;
-    opacity: 0.9;
+    opacity: 0.7;
     /* background: transparent; */
 }
 .slick-prev:hover:before,
@@ -69,7 +64,6 @@
 .slick-next:before
 {
     font-family: 'slick';
-    font-size: 20px;
     line-height: 1;
     color: white;
     -webkit-font-smoothing: antialiased;
@@ -85,10 +79,6 @@
     right: -25px;
     left: auto;
 }
-.slick-prev:before
-{
-    content: '←';
-}
 [dir='rtl'] .slick-prev:before
 {
     content: '→';
@@ -103,14 +93,7 @@
     right: auto;
     left: -25px;
 }
-.slick-next:before
-{
-    content: '→';
-}
-[dir='rtl'] .slick-next:before
-{
-    content: '←';
-}
+
 
 /* Dots */
 .slick-dotted.slick-slider

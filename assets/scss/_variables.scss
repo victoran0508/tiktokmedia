@@ -195,8 +195,8 @@ $max-height-top-logo-sp: $top-banner-height-sp * 0.4;
 }
 
 @mixin flex-wrap($v) {
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: $v;
+    flex-wrap: $v;
 }
 
 @mixin transition-none {
@@ -212,7 +212,7 @@ $max-height-top-logo-sp: $top-banner-height-sp * 0.4;
 }
 
 @mixin transition-all {
-	@include transition(all, .3s, ease);
+	@include transition(all, .4s, ease);
 }
 
 @mixin transform($v) {

@@ -8,8 +8,10 @@
                     <dt class="header">
                         <h3>TAG<span>タグ一覧</span></h3>
                     </dt>
-                    <dd class="body keyword-panel">
-                    <?php get_template_part('keywords'); ?>
+                    <dd class="body">
+                        <p class="keyword-panel">
+                            <?php get_template_part('keywords'); ?>
+                        </p>
                     </dd>
                 </dl>
             </section>

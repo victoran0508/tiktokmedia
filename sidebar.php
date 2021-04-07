@@ -22,20 +22,42 @@
                 <dt>
                     <h4>TAG<small>人気のタグ</small></h4>
                 </dt>
-                <dd class="keyword-panel">
+                <dd>
+                    <p class="keyword-panel">
                     <?php get_template_part('popular-keywords'); ?>
+                    </p>
                 </dd>
             </dl>
             <dl>
                 <dt>
                     <h4>EVENT<small>セミナー・イベント情報</small></h4>
                 </dt>
+                <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'category',
+                                'field' => 'slug',
+                                'terms' => 'event'
+                            )
+                        )
+                    );
+                    
+                    query_posts($args);
+
+                    if (have_posts()) {
+                        the_post();
+                ?>
                 <dd>
-                    <p class="big">
-                        リーディングカンパニーや人気TikTokクリエイターをゲストスピーカーに招いたいセミナー・イベントを企画、実施しています。
-                    </p>
-                    <p class="btn-panel"><a class="btn">イベント情報を見る</a></p>
+                    <p class="big"><?php the_title(); ?></p>
+                    <p class="btn-panel"><a href="<?php the_permalink(); ?>" class="btn">イベント情報を見る</a></p>
                 </dd>
+                <?php
+                    }
+                    wp_reset_query();
+                ?>
             </dl>
             <dl class="dark-back">
                 <dt class="contact">

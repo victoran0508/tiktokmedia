@@ -30,7 +30,7 @@
                         <img class="sp" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-sp.png" alt="" />
                     </a>
                 </div>
-                <a class="menu menu--sitemap"><i class="fa fa-grip-lines" aria-hidden="true"></i></a>
+                <a class="menu menu--sitemap"><!-- i class="fa fa-grip-lines" aria-hidden="true"></!--></a>
                 <div class="menu-popup">
                     <div class="popup-container">
                         <div class="popup-inner">
@@ -87,9 +87,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="menu-background"></div>
             </div>
             <div class="small-block">
-                <a class="menu menu--search"><i class="fa fa-search" aria-hidden="true"></i></a>
+                <a class="menu menu--search"><!-- i class="fa fa-search" aria-hidden="true"></!--></a>
                 <div class="menu-popup">
                     <div class="popup-container">
                         <div class="popup-inner">
@@ -101,17 +102,20 @@
                             </dl>
                             <dl class="tag-list">
                                 <dt>TAG</dt>
-                                <dd class="keyword-panel">
-                                    <?php get_template_part('keywords'); ?>
+                                <dd>
+                                    <p class="keyword-panel">
+                                        <?php get_template_part('keywords'); ?>
+                                    </p>
                                     
-                                    <div class="view-all">
-                                        <a href="<?php home_url(); ?>/tags">VIEW ALL<i class="fas fa-arrow-right"></i></a>
+                                    <div class="view-all-btn">
+                                        <a class="view-all" href="<?php home_url(); ?>/tags">VIEW ALL<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </dd>
                             </dl>
                         </div>
                     </div>
                 </div>
+                <div class="menu-background"></div>
             </div>
         </div>
     </header>

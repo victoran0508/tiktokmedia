@@ -4,7 +4,7 @@
         <section class="section section--topmargin">
             <dl class="content-wrapper">
                 <dt class="header">
-                    <h3># <?php echo urldecode(get_query_var('tag')); ?></h3>
+                    <h3><span># <?php echo urldecode(get_queried_object()->name); //echo urldecode(get_query_var('tag')); ?></span></h3>
                 </dt>
                 <dd class="body">
                     <?php get_template_part('post-list'); ?>

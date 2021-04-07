@@ -4,7 +4,7 @@
         <section class="section section--topmargin">
             <dl class="content-wrapper">
                 <dt class="header">
-                    <h3>検索結果</h3>
+                    <h3><span>検索結果</span></h3>
                 </dt>
                 <dd class="body">
                 	<?php

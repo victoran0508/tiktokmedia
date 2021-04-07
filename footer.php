@@ -68,7 +68,7 @@
                             <dt><a href="https://www.facebook.com/Star-Music-Entertainment-Inc-309575329117117/"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></dt>
                         </dl>
                     </div>
-                    <p class="copyright">Copyright © 2021 Star Music Entertainment Inc. <br class="sp">All rights reserved. </p>
+                    <p class="copyright">Copyright © 2021 Star Music Entertainment Inc. All rights reserved. </p>
                 </div>
             </div>
         </div>

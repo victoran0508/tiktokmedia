@@ -7,7 +7,11 @@
                 $popularpost = new WP_Query( array( 'posts_per_page' => 3, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
                 while ( $popularpost->have_posts() ) : $popularpost->the_post();
             ?>
-                <div class="hero-item" style="background: right center url(<?php the_post_thumbnail_url(); ?>) no-repeat; background-size: contain;">
+                <!-- div class="hero-item" style="background: right center url(<?php // the_post_thumbnail_url(); ?>) no-repeat; background-size: contain;" -->
+                <div class="hero-item">
+                    <figure class="hero-figure">
+                        <img src="<?php the_post_thumbnail_url(); ?>">
+                    </figure>
                     <div class="hero-title">
                         <article class="hero-title-wrapper">
                             <mark class="category category--<?php echo get_category(the_category_ID(false))->slug; ?>"><?php echo str_replace('-', ' ', strtoupper(get_category(the_category_ID(false))->slug)); ?></mark>
@@ -15,6 +19,7 @@
                             <time><?php the_time('Y.m.d'); ?></time>
                         </article>
                     </div>
+                    <div class="hero-title-background"></div>
                 </div>
             <?php endwhile; ?>
             <?php wp_reset_query(); ?>
@@ -121,7 +126,7 @@
                                     'field' => 'slug',
                                     'terms' => 'topics'
                                 )
-                             )
+                            )
                         );
                         
                         query_posts($args);
@@ -139,18 +144,40 @@
                     <h3>EVENT<span>セミナー・イベント情報</span></h3>
                 </dt>
                 <dd class="body">
+                    <?php
+                        $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 1,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'category',
+                                    'field' => 'slug',
+                                    'terms' => 'event'
+                                )
+                            )
+                        );
+                        
+                        query_posts($args);
+
+                        if (have_posts()) {
+                            the_post();
+                    ?>
                     <ul>
                         <li class="item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/event01.png">
+                            <img src="<?php the_post_thumbnail_url(); ?>">
                         </li>
                         <li class="item">
-                            <span class="datetime">2020.12.16</span>
-                            <p class="text">「ゲーム業界のTikTok広告活用事例とブランドエフェクト活用術」—「リーグオブレジェンド：ワイルドリフト」のTikTok施策について解説</p>
+                            <span class="datetime"><?php the_time('Y.m.d'); ?></span>
+                            <p class="text"><?php the_title(); ?></p>
                             <p class="view-detail">
-                                <a href="#" class="view-more">VIEW MORE<i class="fas fa-arrow-right"></i></a>
+                                <a href="<?php the_permalink(); ?>" class="view-more">VIEW DETAILS<i class="fas fa-arrow-right"></i></a>
                             </p>
                         </li>
                     </ul>
+                    <?php
+                        }
+                        wp_reset_query();
+                    ?>
                 </dd>
             </dl>
         </section>
@@ -188,8 +215,10 @@
                         <dt class="header">
                             <h3>TAG<span>人気のタグ</span></h3>
                         </dt>
-                        <dd class="body keyword-panel">
-                            <?php get_template_part('popular-keywords'); ?>
+                        <dd class="body">
+                            <p class="keyword-panel">
+                                <?php get_template_part('popular-keywords'); ?>
+                            </p>
                         </dd>
                     </dl>
                     <p class="view-all"><a href="<?php home_url(); ?>/tags">VIEW ALL<i class="fas fa-arrow-right"></i></a></p>

@@ -107,7 +107,7 @@
                                     <img src="<?php the_post_thumbnail_url(); ?>">
                                     <p><?php the_title(); ?></p>
                                 </a>
-                                <div class="keyword-panel">
+                                <p class="keyword-panel">
                                 <?php
                                     $posttags = get_the_tags();
                                     if ($posttags) {
@@ -116,7 +116,7 @@
                                         }
                                     }
                                 ?>
-                                </div>
+                                </p>
                             </dt>
                             <dd class="datetime">
                                 <span><?php the_time('Y.m.d'); ?></span>

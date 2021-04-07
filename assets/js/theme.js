@@ -44,4 +44,8 @@ jQuery(function($){
 			$(this).removeClass('active');
 		}
 	});
+
+	$('.menu-background').off('click').on('click', function(){
+		$(this).prev().prev().removeClass('active');
+	});
 });

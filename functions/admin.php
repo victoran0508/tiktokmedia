@@ -1,25 +1,6 @@
 <?php
     // カスタム投稿とタクソノミーを追加
 	add_action('init', function(){
-        // ライター
-        register_post_type('writer',
-            array(
-                'labels' => array(
-					'name' => __('ライター'),
-					'singular_name' => __('ライター')
-				),
-				'rewrite' => array(
-					'slug' => 'writer',
-					'with_front' => false,
-				),
-				'hierarchical' => false,
-				'has_archive' => true,
-				'menu_position' => 22,
-				'public' => true,
-                "supports" => ['title', 'thumbnail'],
-            )
-        );
-
         // ドキュメント
         register_post_type('document',
             array(
@@ -36,6 +17,44 @@
                 'menu_position' => 21,
                 'public' => true,
                 "supports" => ['title', 'editor', 'thumbnail'],
+            )
+        );
+
+        // イベント
+        // register_post_type('event',
+        //     array(
+        //         'labels' => array(
+        //             'name' => __('イベント'),
+        //             'singular_name' => __('イベント')
+        //         ),
+        //         'rewrite' => array(
+        //             'slug' => 'event',
+        //             'with_front' => false,
+        //         ),
+        //         'hierarchical' => false,
+        //         'has_archive' => true,
+        //         'menu_position' => 22,
+        //         'public' => true,
+        //         "supports" => ['title', 'editor', 'thumbnail'],
+        //     )
+        // );
+
+        // ライター
+        register_post_type('writer',
+            array(
+                'labels' => array(
+					'name' => __('ライター'),
+					'singular_name' => __('ライター')
+				),
+				'rewrite' => array(
+					'slug' => 'writer',
+					'with_front' => false,
+				),
+				'hierarchical' => false,
+				'has_archive' => true,
+				'menu_position' => 23,
+				'public' => true,
+                "supports" => ['title', 'thumbnail'],
             )
         );
 

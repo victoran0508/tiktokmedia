@@ -88,12 +88,14 @@
                 	text-align: center;
                 	font-size: 24px;
                 	font-weight: bold;
+                	font-family: "Montserrat";
 
                 	small {
                 		font-size: 14px;
                         line-height: 1.5;
                         display: block;
-                        margin-top: 0.8em;
+                        margin-top: 0.7em;
+                        font-family: "YuGothic", "Yu Gothic Medium";
                 	}
 
                 	@media only screen and (max-width: 768px) {
@@ -357,20 +359,19 @@
 	width: 200px;
 	max-width: 100%;
 	line-height: 3.5;
-	background-color: $color-red;
-	color: #fff;
+	background-color: transparent;
+	color: #111111;
 	position: relative;
 	text-align: center;
 	@include transition-all;
 	cursor: pointer;
 	border-radius: 1.75em;
-	border: 1px solid $color-red;
+	border: 1px solid #111111;
 
 	&:hover {
-		text-decoration: none !important;
-		background: transparent;
-		border: 1px solid #111111;
-		color: #111111;
+		background: $color-red;
+		border: 1px solid $color-red;
+		color: $color-white;
 	}
 }
 
@@ -396,17 +397,15 @@
 }
 
 .slick-prev, .slick-next {
-	left: -12px;
+	left: -20px;
 	@media only screen and (min-width: 769px) and (max-width: 1080px) {
-		left: 8px;
+		left: 0px;
 	}
 	z-index: 2;
 	font-weight: bold;
-
-	&:before {
-		color: $color-gray1;
-		font-size: 24px;
-	}
+	background-image: url(../img/arrow-left.png);
+	background-repeat: no-repeat;
+	background-position: center center;
 
 	@media only screen and (max-width: 768px) {
 		display: none !important;
@@ -414,12 +413,14 @@
 }
 
 .slick-next {
-	left: calc(31.25vw - 12px);
+	left: calc(31.25vw - 20px);
+	background-image: url(../img/arrow-right.png);
+
 	@media only screen and (min-width: 1281px) {
-		left: 388px;
+		left: 380px;
 	}
 	@media only screen and (min-width: 769px) and (max-width: 1080px) {
-		left: calc(31.25vw + 8px);
+		left: 31.25vw;
 	}
 }
 
@@ -432,7 +433,7 @@
 	width: 31.25vw;
 	max-width: 400px;
 	@media only screen and (max-width: 768px) {
-		bottom: -4vw;
+		bottom: -6vw;
 		width: 100%;
 		max-width: unset;
 	}
@@ -537,9 +538,11 @@
 }
 
 .keyword-panel {
+	@include display-flex;
+	@include flex-wrap-wrap;
     line-height: 50px;
     @media (max-width: 768px) {
-    	line-height: 15vw;
+    	line-height: 11vw;
     }
 }
 
@@ -617,31 +620,88 @@ section.hero {
 	overflow: visible;
     @extend .background-cover;
 
-	.hero-title {
-		position: absolute;
+    .hero-figure {
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    	height: 100%;
+    	overflow: hidden;
+
+    	border-radius: 10px;
+		@media only screen and (max-width: 768px) {
+			border-radius: unset;
+		}
+
+    	img {
+    		height: 100%;
+    		transform: scale(1);
+		    @include transition-all;
+    	}
+
+    	&:after {
+    		content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0.3rem solid $color-red;
+// 			transform: scale(1.05);
+			border-color: transparent;
+// 			transition: transform .4s cubic-bezier(.4,.1,.3,1);
+            @include transition-all;
+			border-radius: 0.6rem;
+			box-sizing: border-box;
+    	}
+
+    	&:hover{
+//     		img {
+//     			transform: scale(1.05);
+//     		}
+//     		&:after {
+//     		    transform: scale(1);
+//     		}
+    	}
+    }
+
+    .hero-title-background, .hero-title {
+    	position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
 		width: 31.25vw;
 		max-width: 400px;
 		height: 23.4375vw;
 		max-height: 300px;
-		padding: 30px;
-		color: $color-gray1;
-		background: $color-white;
+		padding: calc(30px - 0.3rem);
+		background: $color-red;
 		overflow: hidden;
-		border-radius: 10px;
-	
+		border-radius: 0.6rem;
+
 		@media only screen and (max-width: 768px) {
 			left: 50%;
 			transform: translateX(-50%);
 			top: unset;
 			bottom: -20vw;
-			padding: 5.33vw;
+			padding: calc(5.33vw - 0.3rem);
 			width: 88vw;
 			max-width: unset;
 			height: 45vw;
 			max-height: unset;
 		}
+    }
+
+    .hero-title-background {
+    	z-index: -3;
+    }
+
+	.hero-title {
+		color: $color-gray1;
+		background: $color-white;
+		border: 0.3rem solid $color-white;
+		padding: calc(30px - 0.3rem);
+		-webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        @include transition-all;
 	
 		summary {
 			font-family: "YuGothic", "Yu Gothic Medium";
@@ -655,9 +715,9 @@ section.hero {
 				margin-top: 0.7em;
 			}
 
-			a:hover {
-				opacity: 0.6;
-			}
+            a {
+            	font-weight: bold;
+            }
 		}
 
 		mark {
@@ -681,6 +741,24 @@ section.hero {
 				left: 5.33vw;
 			    bottom: 5.33vw;
 			}
+		}
+	}
+
+	&:hover {
+		.hero-figure {
+			img {
+				transform: scale(1.05);
+			}
+			&:after {
+// 				transform: scale(1);
+                border-color: $color-red;
+			}
+		}
+
+		.hero-title {
+			border-width: 0.3rem;
+			padding: calc(30px - 0.3rem);
+			border-color: transparent;
 		}
 	}
 }
@@ -884,7 +962,7 @@ section {
                 		}
 
                 		&:hover {
-                			box-shadow: 0 5px 10px rgba(0,0,0,0.16);
+                			box-shadow: 0 0 16px rgb(49 49 49 / 30%);
                 		}
                 	}
 
@@ -915,13 +993,22 @@ section {
 					margin-top: 4vw;
 				}
 
-				a {
-					&:not(.btn):hover {
-                        opacity: 0.6;
-					}
-
+				a:not(.btn) {
 					i {
 						margin-left: 1em;
+						position: relative;
+						left: 0;
+						color: #111111;
+						@include transition-all;
+					}
+
+					&:hover {
+                        color: $color-red;
+
+                        i {
+                        	color: $color-red;
+                        	left: 1em;
+                        }
 					}
 				}
 
@@ -992,17 +1079,27 @@ section {
 				text-align: right;
 				font: bold 16px/1.2 "Montserrat";
 				color: #111111;
-				position: absolute;
-				right: 20px;
-				bottom: 20px;
+				margin-top: 1.25em;
+// 				position: absolute;
+// 				right: 20px;
+// 				bottom: 20px;
 
 				a {
-					&:hover {
-                        opacity: 0.6;
-					}
-
 					i {
 						margin-left: 1em;
+						position: relative;
+						left: 0;
+						color: #111111;
+						@include transition-all;
+					}
+
+					&:hover {
+                        color: $color-red;
+
+                        i {
+                        	color: $color-red;
+                        	left: 1em;
+                        }
 					}
 				}
 			}
@@ -1190,18 +1287,25 @@ section {
 					text-align: right;
 					margin-top: 2.5em;
 					@media (max-width: 768px) {
-						display: none;
+                        font-size: 4.2vw;
 					}
 
-					a {
-						cursor: pointer;
-
-						&:hover {
-							opacity: 0.6;
-						}
-
+					a:not(.btn) {
 						i {
 							margin-left: 1em;
+							position: relative;
+							left: 0;
+							color: #111111;
+							@include transition-all;
+						}
+
+						&:hover {
+							color: $color-red;
+
+							i {
+								color: $color-red;
+								left: 1em;
+							}
 						}
 					}
 				}
@@ -1316,11 +1420,6 @@ section {
                     i {
                     	transform: rotate(30deg);
                     	margin-right: 0.6em;
-                    	cursor: pointer;
-
-                    	&:hover {
-                    		color : $color-blue2;
-                    	}
                     }
 				}
 			}
@@ -1583,17 +1682,21 @@ section {
 		}
 		.about-author {
 			background: $color-white;
-			padding: 40px 40px 100px;
+			padding: 0 40px 100px;
 			@media only screen and (max-width: 768px) {
-				padding: 10vw 6.4vw 26vw;
+				padding: 0 6.4vw 26vw;
 				margin-left: -6.4vw;
 				margin-right: -6.4vw;
 			}
 			dt {
                 font: bold 20px / 1.5 "YuGothic", "Yu Gothic Medium";
                 margin-bottom: 1.6em;
+                padding-top: 40px;
+                border-top: 1px solid #BBBBBB;
                 @media only screen and (max-width: 768px) {
+                	padding-top: 10vw;
 					font-size: 5.33vw;
+					border-top-width: 2px;
 				}
 			}
 			dd {
