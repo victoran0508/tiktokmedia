@@ -6,10 +6,8 @@
         <dl>
             <a href="<?php the_permalink(); ?>"></a>
             <dt>
-                <a href="<?php the_permalink(); ?>">
-                    <img src="<?php the_post_thumbnail_url(); ?>">
-                    <p><?php the_title(); ?></p>
-                </a>
+                <img src="<?php the_post_thumbnail_url(); ?>">
+                <p><?php the_title(); ?></p>
                 <div class="keyword-panel">
                 <?php
                     $posttags = get_the_tags();

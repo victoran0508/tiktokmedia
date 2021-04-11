@@ -30,28 +30,28 @@ jQuery(function($){
 			$('.page-header').removeClass('header-sticky');
 		}
 
-		if ($('.float-sns-btn').offset().top + $('.float-sns-btn').height() > $('.about-author dd').offset().top + $('.about-author dd').height()) {
-			$('.float-sns-btn').css('position', 'absolute');
-			$('.float-sns-btn').css('bottom', '100px');
-			$('.float-sns-btn').css('top', 'auto');
+		if ($('.shared-counts-wrap').offset().top + $('.shared-counts-wrap').height() > $('.about-author dd').offset().top + $('.about-author dd').height()) {
+			$('.shared-counts-wrap').css('position', 'absolute');
+			$('.shared-counts-wrap').css('bottom', '100px');
+			$('.shared-counts-wrap').css('top', 'auto');
 			if ($(window).width() > 1200) {
-				$('.float-sns-btn').css('left', '-42px');
+				$('.shared-counts-wrap').css('left', '-42px');
 			} else if ($(window).width() > 1080) {
-				$('.float-sns-btn').css('left', 'calc(558px - 50vw)');
+				$('.shared-counts-wrap').css('left', 'calc(558px - 50vw)');
 			} else {
-				$('.float-sns-btn').css('left', '10px');
+				$('.shared-counts-wrap').css('left', '10px');
 			}
 		}
-		if ($('.about-author dd').position().top + $('.about-author dd').height() - $(window).scrollTop() > 80 + $('.float-sns-btn').height()) {
-			$('.float-sns-btn').css('position', 'fixed');
-			$('.float-sns-btn').css('top', '160px');
-			$('.float-sns-btn').css('bottom', 'unset');
+		if ($('.about-author dd').position().top + $('.about-author dd').height() - $(window).scrollTop() > 80 + $('.shared-counts-wrap').height()) {
+			$('.shared-counts-wrap').css('position', 'fixed');
+			$('.shared-counts-wrap').css('top', '160px');
+			$('.shared-counts-wrap').css('bottom', 'unset');
 			if ($(window).width() > 1200) {
-				$('.float-sns-btn').css('left', 'calc(50vw - 590px)');
+				$('.shared-counts-wrap').css('left', 'calc(50vw - 590px)');
 			} else if ($(window).width() > 1080) {
-				$('.float-sns-btn').css('left', '10px');
+				$('.shared-counts-wrap').css('left', '10px');
 			} else {
-				$('.float-sns-btn').css('left', '10px');
+				$('.shared-counts-wrap').css('left', '10px');
 			}
 		}
 	});

@@ -626,10 +626,19 @@ section.hero {
     	top: 0;
     	height: 100%;
     	overflow: hidden;
-
     	border-radius: 10px;
 		@media only screen and (max-width: 768px) {
 			border-radius: unset;
+		}
+
+		a {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+			z-index: 1;
 		}
 
     	img {
@@ -731,6 +740,16 @@ section.hero {
 		-webkit-background-clip: padding-box;
         background-clip: padding-box;
         @include transition-all;
+
+		a {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+			z-index: 1;
+		}
 	
 		summary {
 			font-family: "YuGothic", "Yu Gothic Medium";
@@ -738,6 +757,7 @@ section.hero {
 			font-weight: normal;
 			line-height: 1.5;
 			margin-top: 1em;
+			font-weight: bold;
 			@media only screen and (max-width: 768px) {
 				font-size: $font-size-xxxxxl-sp;
 				line-height: 1.5;
@@ -1617,7 +1637,7 @@ section {
 
 			a {
 				color: #FE2C55;
-				opacity: 0.6;
+				text-decoration: underline !important;
 
 				&:hover {
 					color: #111111;
@@ -1785,6 +1805,7 @@ section {
 		}
 
 		.float-sns-btn {
+			display: hidden;
 			width: 40px;
 			position: fixed;
 			top: 160px;
@@ -2058,6 +2079,147 @@ section {
 				background: $color-red;
 				color: $color-white;
 				border-color: $color-red;
+			}
+		}
+	}
+}
+
+.shared-counts-wrap.before_content.style-buttons {
+	width: 40px;
+	position: fixed;
+	top: 160px;
+	left: calc(50vw - 590px);
+	z-index: 5;
+	@media only screen and (max-width: 1200px) {
+		top: 160px;
+		left: 10px;
+
+		.shared-counts-button {
+			opacity: 0.5;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	.shared-counts-button {
+		width: 40px;
+		text-align: center;
+		font: 12px / 15px Montserrat;
+		font-weight: 700;
+		display: block;
+		overflow: visible;
+		text-decoration: none !important;
+
+		.shared-counts-icon-label {
+			width: 40px;
+			height: 40px;
+			display: block;
+			border-radius: 50%;
+			border: 1px solid #111111;
+			color: #111111;
+			@include display-flex;
+			@include justify-content-center;
+
+			.shared-counts-icon {
+				font-size: 20px;
+				line-height: 40px;
+				@include display-flex;
+				@include justify-content-center;
+				@include align-items-center;
+			}
+
+			.shared-counts-label {
+				display: none;
+			}
+
+			&:hover {
+				color: $color-white;
+				.shared-counts-icon svg {
+					fill: white;
+				}
+				background: #111111;
+			}
+			margin-bottom: 8px;
+		}
+
+		.shared-counts-count {
+			color: #111111;
+		}
+
+		& + .shared-counts-button {
+			margin-top: 30px;
+		}
+
+		&.twitter {
+			svg {
+				width: 18.57px !important;
+				height: 20px !important;
+			}
+		}
+
+		&.facebook {
+			svg {
+				width: 11.75px !important;
+				height: 20px !important;
+			}
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		display: none;
+	}
+}
+
+#ez-toc-container {
+	border-radius: 8px;
+	border: 1px solid #BBBBBB;
+	padding: 40px 40px 80px;
+	@media only screen and (max-width: 768px) {
+		padding: 5.33vw 5.33vw 10vw;
+	}
+
+	.ez-toc-title {
+		text-align: center;
+		font: bold 20px / 1.4 "YuGothic", "Yu Gothic Medium";
+		@media only screen and (max-width: 768px) {
+			font-size: 5.33vw;
+			line-height: 1.3;
+		}
+	}
+
+	nav {
+		ul {
+			list-style: none;
+		}
+
+		.ez-toc-list {
+			padding-left: unset;
+			font: 14px / 1.2 "YuGothic", "Yu Gothic Medium";
+			@media only screen and (max-width: 768px) {
+				font-size: 3.73vw;
+				line-height: 1.2;
+			}
+			color: #111111;
+
+			.ez-toc-list-level-1,
+			.ez-toc-list-level-2,
+			.ez-toc-list-level-3,
+			.ez-toc-list-level-4 {
+				padding-left: 40px;
+				@media only screen and (max-width: 768px) {
+					padding-left: 8.5vw;
+				}
+			}
+
+			.ez-toc-link {
+				display: block;
+				border-bottom: 2px solid #BBBBBB;
+				color: #111111;
+				padding-top: 0.5em;
+				padding-bottom: 0.5em;
+				text-decoration: none !important;
 			}
 		}
 	}

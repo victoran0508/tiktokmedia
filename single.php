@@ -6,10 +6,10 @@
         <div class="main">
             <section class="section section--article section--topmargin">
                 <article class="article">
-                    <div class="float-sns-btn">
+                    <!-- div class="float-sns-btn">
                         <span><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>999</span>
                         <span><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>9999</span>
-                    </div>
+                    </div -->
                     <summary class="summary">
                         <div class="top">
                             <span class="category category--<?php echo get_the_category()[0]->slug; ?>"><?php echo str_replace('-', ' ', strtoupper(get_category(the_category_ID(false))->slug)); ?></span>
@@ -102,12 +102,11 @@
                     ?>
                     <li class="item">
                         <dl>
+                            <a href="<?php the_permalink(); ?>"></a>
                             <dt>
-                                <a href="<?php the_permalink(); ?>">
-                                    <img src="<?php the_post_thumbnail_url(); ?>">
-                                    <p><?php the_title(); ?></p>
-                                </a>
-                                <p class="keyword-panel">
+                                <img src="<?php the_post_thumbnail_url(); ?>">
+                                <p><?php the_title(); ?></p>
+                                <div class="keyword-panel">
                                 <?php
                                     $posttags = get_the_tags();
                                     if ($posttags) {
@@ -116,7 +115,7 @@
                                         }
                                     }
                                 ?>
-                                </p>
+                                </div>
                             </dt>
                             <dd class="datetime">
                                 <span><?php the_time('Y.m.d'); ?></span>

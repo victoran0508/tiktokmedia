@@ -10,12 +10,14 @@
                 <!-- div class="hero-item" style="background: right center url(<?php // the_post_thumbnail_url(); ?>) no-repeat; background-size: contain;" -->
                 <div class="hero-item">
                     <figure class="hero-figure">
+                        <a href="<?php the_permalink(); ?>"></a>
                         <img src="<?php the_post_thumbnail_url(); ?>">
                     </figure>
                     <div class="hero-title">
+                        <a href="<?php the_permalink(); ?>"></a>
                         <article class="hero-title-wrapper">
                             <mark class="category category--<?php echo get_category(the_category_ID(false))->slug; ?>"><?php echo str_replace('-', ' ', strtoupper(get_category(the_category_ID(false))->slug)); ?></mark>
-                            <summary><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></summary>
+                            <summary><?php the_title(); ?></summary>
                             <time><?php the_time('Y.m.d'); ?></time>
                         </article>
                     </div>

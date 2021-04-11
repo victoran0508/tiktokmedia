@@ -4,11 +4,10 @@
 ?>
     <li class="item item--document">
         <dl>
+            <a href="<?php the_permalink(); ?>"></a>
             <dt>
-                <a href="<?php the_permalink(); ?>">
-                    <img src="<?php the_post_thumbnail_url(); ?>">
-                    <p><?php the_title(); ?></p>
-                </a>
+                <img src="<?php the_post_thumbnail_url(); ?>">
+                <p><?php the_title(); ?></p>
             </dt>
             <dd class="datetime">
                 <span><?php the_time('Y.m.d'); ?></span>
