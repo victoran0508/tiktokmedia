@@ -27,7 +27,7 @@
 	a:not(.contact-link):not(.keyword) {
 	    color: inherit;
 		font-size: inherit;
-		font-family: $font-sans;
+		font-family: $font-base;
 		font-weight: 700;
 	}
 
@@ -87,7 +87,7 @@
 
 					dt.header {
 						color: #555555;
-						font: 14px / 1.3 "Montserrat";
+						font: 14px / 1.3 $font-montserrat;
 						font-weight: 400;
 					}
 
@@ -98,7 +98,9 @@
                     .category {
 						dt:not(.header) {
 							margin-top: 2em;
-							font: bold 20px / 1.2 "Montserrat";
+							font: bold 20px / 1.2 $font-montserrat;
+							@include transition(all, 0.4, ease);
+							opacity: 1;
 							@media only screen and (max-width: 768px) {
 								margin-top: 1.5em;
 								font-size: 5.33vw;
@@ -106,7 +108,9 @@
 						}
 						
 						dd {
-                            font: 12px / 1.33 "YuGothic", "Yu Gothic Medium";
+                            font: 12px / 1.33 $font-base;
+                            @include transition(all, 0.4, ease);
+                            opacity: 1;
                             @media only screen and (max-width: 768px) {
 								font-size: 3.2vw;
 							}
@@ -115,10 +119,14 @@
 
 						a {
 							cursor: pointer;
+							@include transition(all, 0.4, ease);
 
 							&:hover {
 // 								text-decoration: underline !important;
-                                text-shadow: 5px 5px rgba(0, 0, 0, 0.16);
+//                                 text-shadow: 5px 5px rgba(0, 0, 0, 0.16);
+                                dt, dd {
+                                    opacity: 0.6;
+                                }
 							}
 						}
 
@@ -142,7 +150,7 @@
 					.contents {
 						dt:not(.header) {
 							margin-top: 2em;
-							font: bold 20px / 1.2 "Montserrat";
+							font: bold 20px / 1.2 $font-montserrat;
 							@media only screen and (max-width: 768px) {
 								margin-top: 1.5em;
 								font-size: 5.33vw;
@@ -150,7 +158,7 @@
 						}
 						
 						dd {
-                            font: 12px / 1.33 "YuGothic", "Yu Gothic Medium";
+                            font: 12px / 1.33 $font-base;
                             @media only screen and (max-width: 768px) {
 								font-size: 3.2vw;
 							}
@@ -162,7 +170,10 @@
 
 							&:hover {
 // 							    text-decoration: underline !important;
-                                text-shadow: 5px 5px rgba(0, 0, 0, 0.16);
+//                                 text-shadow: 5px 5px rgba(0, 0, 0, 0.16);
+                                dt, dd {
+                                    opacity: 0.6;
+                                }
 							}
 						}
 					}
@@ -172,7 +183,7 @@
 						@include flex-direction-column;
 
 						.about {
-							font: 14px/1.35 "YuGothic", "Yu Gothic Medium";
+							font: 14px/1.35 $font-base;
 							@media only screen and (max-width: 768px) {
 								font-size: 3.2vw;
 							}
@@ -231,7 +242,7 @@
 					p {
 						display: none;
 						margin-top: 15vw;
-						font: 3.2vw / 1.5 "Montserrat";
+						font: 3.2vw / 1.5 $font-montserrat;
 						font-weight: 700;
 						color: #555555;
 						margin-left: 6.4vw;
@@ -307,7 +318,7 @@
 						}
 
 						dt {
-							font: 14px / 1.3 "Montserrat";
+							font: 14px / 1.3 $font-montserrat;
 							font-weight: 400;
 							margin-bottom: 3em;
 							margin-top: 40px;
@@ -339,7 +350,7 @@
 						}
 
 						dt {
-							font: 14px / 1.3 "Montserrat";
+							font: 14px / 1.3 $font-montserrat;
 							font-weight: 400;
 							margin-bottom: 3em;
 							margin-top: 40px;
@@ -358,7 +369,7 @@
                                 margin-right: -1em;
 
 								li {
-									font: 12px/2 "YuGothic", "Yu Gothic Medium";
+									font: 12px/2 $font-base;
 									margin-bottom: 1em;
 									padding-left: 1em;
 									padding-right: 1em;
@@ -389,7 +400,7 @@
 								margin-top: 2.5vw;
 
 								.view-all {
-									font: bold 16px / 1.2 "Montserrat";
+									font: bold 16px / 1.2 $font-montserrat;
 									color : #111111;
 									cursor: pointer;
 
@@ -580,12 +591,13 @@
 
 		li {
 			display: inline;
-			font-family: "YuGothic", "Yu Gothic Medium";
+			font-family: $font-base;
 			font-size: inherit;
+			line-height: 1.5;
 			color: #111111;
 			position: relative;
 
-			+li {
+			+ li {
 				padding-left: calc(64px + 0.6em);
 
 				&:before {
@@ -596,9 +608,9 @@
 					display: block;
 					border-radius: 50%;
 					content: "";
-					top: 0.75em;
+					top: 50%;
 					left: 32px;
-					transform: translateY(-50%);
+					@include transform(translateY(-50%));
 				}
 
 				@media only screen and (max-width: 768px) {
@@ -713,9 +725,9 @@
 						text-align: center;
 					}
 					h3 {
-						font: bold 40px / 1.2 "Montserrat";
+						font: bold 40px / 1.2 $font-montserrat;
 						span {
-                            font: bold 16px/1.3 "YuGothic", "Yu Gothic Medium";
+                            font: bold 16px/1.3 $font-base;
                             display: block;
 						}
 						margin-bottom: 1.4em;
@@ -743,7 +755,7 @@
 					}
 					p {
 						margin-bottom: 1em;
-						font: 14px/ 1.8 "YuGothic", "Yu Gothic Medium";
+						font: 14px/ 1.8 $font-base;
 						font-weight: 500;
 						text-align: left;
 
@@ -779,7 +791,7 @@
 
 				span {
 					color: #111111;
-					font: 2.66vw/1.3 "YuGothic", "Yu Gothic Medium";
+					font: 2.66vw/1.3 $font-base;
 					font-weight: 600;
 					@media only screen and (max-width: 768px) {
 						display: none;
@@ -819,7 +831,7 @@
 				}
 			
 				a {
-					font-family: $font-sans;
+					font-family: $font-base;
 					font-size: $font-size-xs;
 					@media only screen and (max-width: 768px) {
 						font-size: $font-size-xs-sp;
@@ -841,7 +853,7 @@
 			.category {
 				dt:not(.header) {
 					margin-top: 2em;
-					font: bold 20px / 1.2 "Montserrat";
+					font: bold 20px / 1.2 $font-montserrat;
 					@media only screen and (max-width: 768px) {
 						margin-top: 1.5em;
 						font-size: 5.33vw;
@@ -849,7 +861,7 @@
 				}
 				
 				dd {
-					font: 12px / 1.33 "YuGothic", "Yu Gothic Medium";
+					font: 12px / 1.33 $font-base;
 					@media only screen and (max-width: 768px) {
 						font-size: 3.2vw;
 					}
@@ -884,7 +896,7 @@
 			.contents {
 				dt:not(.header) {
 					margin-top: 2em;
-					font: bold 20px / 1.2 "Montserrat";
+					font: bold 20px / 1.2 $font-montserrat;
 					@media only screen and (max-width: 768px) {
 						margin-top: 1.5em;
 						font-size: 5.33vw;
@@ -892,7 +904,7 @@
 				}
 				
 				dd {
-					font: 12px / 1.33 "YuGothic", "Yu Gothic Medium";
+					font: 12px / 1.33 $font-base;
 					@media only screen and (max-width: 768px) {
 						font-size: 3.2vw;
 					}
@@ -913,7 +925,7 @@
 				@include flex-direction-column;
 
 				.about {
-					font: 14px/1.35 "YuGothic", "Yu Gothic Medium";
+					font: 14px/1.35 $font-base;
 					@media only screen and (max-width: 768px) {
 						font-size: 3.2vw;
 					}
@@ -968,7 +980,7 @@
 
 			.copyright {
 				margin-top: 15vw;
-				font: 3.2vw / 1.5 "Montserrat";
+				font: 3.2vw / 1.5 $font-montserrat;
 				font-weight: 400;
 				color: #555555;
 				margin-left: 6.4vw;

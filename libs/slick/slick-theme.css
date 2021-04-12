@@ -44,7 +44,7 @@
 {
     color: transparent;
     outline: none;
-    opacity: 0.7;
+/*     opacity: 0.7; */
     /* background: transparent; */
 }
 .slick-prev:hover:before,

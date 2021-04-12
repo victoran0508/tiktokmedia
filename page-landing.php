@@ -21,7 +21,7 @@
                             <time><?php the_time('Y.m.d'); ?></time>
                         </article>
                     </div>
-                    <div class="hero-title-background"></div>
+                    <!-- <div class="hero-title-background"></div> -->
                 </div>
             <?php endwhile; ?>
             <?php wp_reset_query(); ?>
@@ -166,11 +166,17 @@
                     ?>
                     <ul>
                         <li class="item">
-                            <img src="<?php the_post_thumbnail_url(); ?>">
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php the_post_thumbnail_url(); ?>">
+                            </a>
                         </li>
                         <li class="item">
                             <span class="datetime"><?php the_time('Y.m.d'); ?></span>
-                            <p class="text"><?php the_title(); ?></p>
+                            <p class="text">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </p>
                             <p class="view-detail">
                                 <a href="<?php the_permalink(); ?>" class="view-more">VIEW DETAILS<i class="fas fa-arrow-right"></i></a>
                             </p>

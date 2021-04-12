@@ -22,11 +22,11 @@ $color-menu-white: $color-white;
 $color-header: $color-gray2;
 
 // フォント
-$font-sans: "YuGothic", "Yu Gothic Medium";
-$font-poppins: "Poppins";
-$font-serif: "Noto Serif JP";
+$font-base: YuGothic, "Yu Gothic Medium", "Yu Gothic", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, Verdana, Meiryo, sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
 
-$font-family-text: $font-sans;
+
+$font-family-text: $font-base;
 
 // フォントサイス
 $font-size-xxxxxxxl: 51px;

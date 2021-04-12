@@ -21,6 +21,23 @@ jQuery(function($){
 		} else {
 			$('.page-header').removeClass('header-sticky');
 		}
+
+		$('#toc_container p.toc_title').append(' <span class="toc_toggle">[<a href="#">非表示</a>]</span>');
+
+		var h = $('#toc_container .toc_list').height() + 'px';
+		$('#toc_container .toc_list').css('max-height', h);
+
+		$('span.toc_toggle a').click(function(event) {
+			event.preventDefault();
+			$('#toc_container').toggleClass('collapsed');
+			if ($('#toc_container').hasClass('collapsed')) {
+				$('span.toc_toggle a').text('表示');
+				$('#toc_container .toc_list').css('max-height', '0');
+			} else {
+				$('span.toc_toggle a').text('非表示');
+				$('#toc_container .toc_list').css('max-height', h);
+			}
+		});
 	});
 
 	$(window).scroll(function(){
@@ -35,9 +52,9 @@ jQuery(function($){
 			$('.shared-counts-wrap').css('bottom', '100px');
 			$('.shared-counts-wrap').css('top', 'auto');
 			if ($(window).width() > 1200) {
-				$('.shared-counts-wrap').css('left', '-42px');
+				$('.shared-counts-wrap').css('left', '-41px');
 			} else if ($(window).width() > 1080) {
-				$('.shared-counts-wrap').css('left', 'calc(558px - 50vw)');
+				$('.shared-counts-wrap').css('left', 'calc(559px - 50vw)');
 			} else {
 				$('.shared-counts-wrap').css('left', '10px');
 			}

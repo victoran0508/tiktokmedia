@@ -72,7 +72,7 @@
 
 		dl {
 			background: $color-white;
-			font: 14px / 22px "YuGothic", "Yu Gothic Medium";
+			font: 14px / 22px $font-base;
 			color: #111111;
 			padding: 40px 20px 20px;
 			border-radius: 10px;
@@ -88,14 +88,14 @@
                 	text-align: center;
                 	font-size: 24px;
                 	font-weight: bold;
-                	font-family: "Montserrat";
+                	font-family: $font-montserrat;
 
                 	small {
                 		font-size: 14px;
                         line-height: 1.5;
                         display: block;
                         margin-top: 0.7em;
-                        font-family: "YuGothic", "Yu Gothic Medium";
+                        font-family: $font-base;
                 	}
 
                 	@media only screen and (max-width: 768px) {
@@ -197,7 +197,7 @@
 									bottom: 5vw;
 								}
 								span {
-									font: 14px/1.3 "Montserrat";
+									font: 14px/1.3 $font-montserrat;
 									font-weight: 600;
 									color: #555555;
 
@@ -477,7 +477,7 @@
 		position: relative;
 		display: block;
 		width: 3em;
-		font-family: "Montserrat";
+		font-family: $font-montserrat;
 		text-align: center;
 		cursor: pointer;
 		font-weight: bold;
@@ -612,7 +612,7 @@ section.hero {
     	height: 56.26vw;
         width: 100%;
 		background-size: cover;
-		margin-bottom: 21.33vw;
+		margin-bottom: 41.33vw;
 	}
 
     position: relative;
@@ -655,9 +655,9 @@ section.hero {
 			width: 100%;
 			height: 100%;
 			border: 0.3rem solid $color-red;
-// 			transform: scale(1.05);
+			transform: scale(1.05);
 			border-color: transparent;
-// 			transition: transform .4s cubic-bezier(.4,.1,.3,1);
+			transition: transform .4s cubic-bezier(.4,.1,.3,1);
             @include transition-all;
 			border-radius: 0.6rem;
 			box-sizing: border-box;
@@ -668,12 +668,12 @@ section.hero {
     	}
 
     	&:hover{
-//     		img {
-//     			transform: scale(1.05);
-//     		}
-//     		&:after {
-//     		    transform: scale(1);
-//     		}
+    		img {
+    			transform: scale(1.05);
+    		}
+    		&:after {
+    		    transform: scale(1);
+    		}
     	}
     }
 
@@ -695,7 +695,7 @@ section.hero {
 			left: 50%;
 			transform: translateX(-50%);
 			top: unset;
-			bottom: -20vw;
+			bottom: -40vw;
 			padding: calc(5.33vw - 0.3rem);
 			width: 88vw;
 			max-width: unset;
@@ -735,11 +735,15 @@ section.hero {
 	.hero-title {
 		color: $color-gray1;
 		background: $color-white;
-		border: 0.3rem solid $color-white;
-		padding: calc(30px - 0.3rem);
+// 		border: 0.3rem solid $color-white;
+		padding: 30px;
 		-webkit-background-clip: padding-box;
         background-clip: padding-box;
         @include transition-all;
+
+        @media only screen and (max-width: 768px) {
+        	padding: 5.33vw;
+        }
 
 		a {
 			position: absolute;
@@ -752,7 +756,7 @@ section.hero {
 		}
 	
 		summary {
-			font-family: "YuGothic", "Yu Gothic Medium";
+			font-family: $font-base;
 			font-size: 20px;
 			font-weight: normal;
 			line-height: 1.5;
@@ -770,7 +774,7 @@ section.hero {
 		}
 
 		mark {
-			font-family: "Montserrat";
+			font-family: $font-montserrat;
 			font-size: 14px;
 			@media only screen and (max-width: 768px) {
 				font-size: 3.73vw;
@@ -780,11 +784,12 @@ section.hero {
 		}
 
 		time {
-			font: 14px/1.3 "Montserrat";
+			font: 14px/1.3 $font-montserrat;
 			position: absolute;
 			left: 30px;
 			bottom: 30px;
 			color: #555555;
+			margin-top: 0.5em;
 			@media only screen and (max-width: 768px) {
 				font-size: 3.73vw;
 				left: 5.33vw;
@@ -799,7 +804,7 @@ section.hero {
 				transform: scale(1.05);
 			}
 			&:after {
-// 				transform: scale(1);
+				transform: scale(1);
                 border-color: $color-red;
 			}
 		}
@@ -839,10 +844,10 @@ section {
 			}
 
 			h3 {
-				font: bold 80px/1.2 "Montserrat";
+				font: bold 80px/1.2 $font-montserrat;
 				span {
                     display: block;
-                    font: bold 24px/1.3 "YuGothic", "Yu Gothic Medium";
+                    font: bold 24px/1.3 $font-base;
 				}
 
 				@media (max-width: 768px) {
@@ -859,7 +864,7 @@ section {
 			.decription {
 				p {
 					text-align: left;
-					font: 16px/1.8 "YuGothic", "Yu Gothic Medium";
+					font: 16px/1.8 $font-base;
 					font-weight: 500;
 	
 					@media only screen and (max-width: 768px) {
@@ -880,7 +885,7 @@ section {
 			}
             .explanation {
             	text-align: left;
-            	font: 16px/1.8 "YuGothic", "Yu Gothic Medium";
+            	font: 16px/1.8 $font-base;
             	font-weight: 500;
 
             	@media only screen and (max-width: 768px) {
@@ -935,7 +940,7 @@ section {
                 		}
                 		background: $color-white;
                 		height: 100%;
-                		border-radius: 10px;
+                		border-radius: 8px;
                 		position: relative;
 
                         > a {
@@ -948,12 +953,13 @@ section {
                 			bottom: 0;
                 			background: white;
                 			opacity: 0;
+                			border-radius: 8px;
                 			@include transition-all;
-                        }
 
-                		> a:hover {
-                			opacity: 0.3;
-                		}
+                			&:hover {
+                				opacity: 0.3;
+                			}
+                        }
 
                 		dt {
                 			> a:hover {
@@ -968,6 +974,10 @@ section {
                 				img {
 								    width: 100%;
                 				}
+							}
+
+							img {
+								border-radius: 8px 8px 0 0;
 							}
 
                 			p {
@@ -1004,7 +1014,7 @@ section {
 								bottom: 5vw;
 							}
                 			span {
-                                font: 14px/1.3 "Montserrat";
+                                font: 14px/1.3 $font-montserrat;
                                 font-weight: 600;
                                 color: #555555;
 
@@ -1040,13 +1050,13 @@ section {
 			}
 
 			> p {
-				font: bold 16px / 1.2 "Montserrat";
+				font: bold 16px / 1.2 $font-base;
 				text-align: right;
 				@media only screen and (max-width: 768px) {
 					margin-top: 4vw;
 				}
 
-				a:not(.btn) {
+				a:not(.btn):not(.keyword) {
 					i {
 						margin-left: 1em;
 						position: relative;
@@ -1109,33 +1119,62 @@ section {
 				position: relative;
 				height: 280px;
 
+				a {
+					img {
+						@include transition-all;
+						border-radius: 8px;
+						opacity: 1;
+					}
+
+					&:hover {
+						img {
+						    opacity: 0.6;
+						}
+					}
+				}
+
+				
+
 				@media (max-width: 768px) {
 					height: 56vw;
 					width: 100%;
 					padding-left: 6.4vw;
 					padding-right: 6.4vw;
+
+					img {
+						border-radius: 2.13vw;
+					}
 				}
 			}
 
 			.datetime {
-                font: bold 24px/1.2 "Montserrat";
+                font: bold 24px/1 $font-montserrat;
                 color: $color-red;
                 margin-bottom: 0.8em;
+                display: block;
 			}
 
 			.text {
-                font: bold 20px/1.75 "YuGothic", "Yu Gothic Medium";
+                font: bold 20px/1.75 $font-base;
                 color: #111111;
+
+                a {
+                	opacity: 1;
+
+					&:hover {
+						opacity: 0.6;
+					}
+                }
 			}
 
 			.view-detail {
 				text-align: right;
-				font: bold 16px/1.2 "Montserrat";
+				font: bold 16px/1.2 $font-montserrat;
 				color: #111111;
-				margin-top: 1.25em;
-// 				position: absolute;
-// 				right: 20px;
-// 				bottom: 20px;
+// 				margin-top: 1.25em;
+				position: absolute;
+				right: 20px;
+				bottom: 0px;
 
 				a {
 					i {
@@ -1294,7 +1333,7 @@ section {
 							p {
 								display: inline-block;
 								.category {
-									font: bold 14px / 1.3 "Montserrat";
+									font: bold 14px / 1.3 $font-montserrat;
 									display: block;
 									margin-bottom: 1em;
 									@media (max-width: 768px) {
@@ -1303,8 +1342,7 @@ section {
 									}
 								}
 
-
-								font: bold 16px/ 1.5 "YuGothic", "Yu Gothic Medium";
+								font: bold 16px/ 1.5 $font-base;
 								@media (max-width: 768px) {
 									font-size: 3.73vw;
 									line-height: 1.5;
@@ -1336,7 +1374,7 @@ section {
 				}
 
 				.view-all {
-					font: bold 16px/1.2 "Montserrat";
+					font: bold 16px/1.2 $font-montserrat;
 					text-align: right;
 					margin-top: 2.5em;
 					@media (max-width: 768px) {
@@ -1420,7 +1458,7 @@ section {
 					}
 
 					p {
-						font: bold 16px/1.5 "YuGothic", "Yu Gothic Medium";
+						font: bold 16px/1.5 $font-base;
 						margin-top: 1.25em;
 					}
 
@@ -1439,7 +1477,7 @@ section {
 					text-align: center;
 					margin-top: 80px;
 					a {
-						font: bold 16px/3.5 "YuGothic", "Yu Gothic Medium";
+						font: bold 16px/3.5 $font-base;
 						@media(max-width: 768px) {
 							font-size: 3.73vw;
 							width: 12em;
@@ -1452,6 +1490,22 @@ section {
 
 	&.section--article {
 		position: relative;
+		margin-bottom: 80px;
+
+		@media only screen and (max-width: 768px) {
+			margin-bottom: 21.33vw;
+		}
+
+		.article {
+			border-radius: 8px;
+			overflow: hidden;
+
+			@media only screen and (max-width: 768px) {
+				border-radius: none;
+				overflow: visible;
+			}
+		}
+
 		.summary {
 			background: $color-white;
 			padding: 40px 40px 0;
@@ -1463,10 +1517,10 @@ section {
 				margin-bottom: 20px;
 
 				.category {
-                    font: bold 20px / 1.2 "Montserrat";
+                    font: bold 20px / 1.2 $font-montserrat;
 				}
 				.refresh {
-                    font: 14px / 1.3 "Montserrat";
+                    font: 14px / 1.3 $font-montserrat;
                     font-weight: 700;
                     color :#555555;    
 
@@ -1478,7 +1532,7 @@ section {
 			}
 
 			h1 {
-				font: bold 28px / 1.5 "YuGothic", "Yu Gothic Medium";
+				font: bold 28px / 1.5 $font-base;
 				margin-bottom: 0.5em;
 			}
 
@@ -1538,12 +1592,22 @@ section {
 				margin-left: -6.4vw;
 				margin-right: -6.4vw;
 			}
-			font: 12px / 1.6 "YuGothic", "Yu Gothic Medium";
+			font: 12px / 1.6 $font-base;
 			color: #111111;
 			background: $color-white;
 
+			.lead-sentence {
+				margin-top: 40px;
+				margin-bottom: 100px;
+
+				@media only screen and (max-width: 768px) {
+					margin-top: 9.6vw;
+					margin-bottom: 32vw;
+				}
+			}
+
 			h2 {
-				font: bold 20px / 1.5 "YuGothic", "Yu Gothic Medium";
+				font: bold 20px / 1.5 $font-base;
 				padding-bottom: 0.6em;
 				margin-top: 2em;
 				margin-bottom: 2em;
@@ -1551,14 +1615,15 @@ section {
 			}
 
 			h3 {
-				font: bold 18px / 1.5 "YuGothic", "Yu Gothic Medium";
+				font: bold 18px / 1.5 $font-base;
 				padding: 1em;
 				background: #F2F2F2;
 				margin-bottom: 2em;
+				border-radius: 8px;
 			}
 
 			h4 {
-				font: bold 18px / 1.7 "YuGothic", "Yu Gothic Medium";
+				font: bold 18px / 1.7 $font-base;
 				color: #111111;
 				margin-bottom: 2em;
 			}
@@ -1567,10 +1632,18 @@ section {
 				font-size: 16px;
 				line-height: 1.8;
 				margin-bottom: 40px;
+
+				@media only screen and (max-width: 768px) {
+					margin-bottom: 10vw;
+				}
 			}
 
 			ul {
 				padding-left: 2em;
+				margin-bottom: 40px;
+				@media only screen and (max-width: 768px) {
+					margin-bottom: 5.33vw;
+				}
 				li {
 					font-size: 16px;
 					line-height: 1.8;
@@ -1583,6 +1656,10 @@ section {
 
 			ol {
 				padding-left: 2em;
+				margin-bottom: 40px;
+				@media only screen and (max-width: 768px) {
+					margin-bottom: 5.33vw;
+				}
 				li {
 					font-size: 16px;
 					line-height: 1.8;
@@ -1600,7 +1677,33 @@ section {
 				border-radius: 10px;
 				position: relative;
 				background: #F2F2F2;
-				margin-top: 40px;
+				margin-bottom: 40px;
+				@media only screen and (max-width: 768px) {
+					font-size: 3.73vw;
+					margin-bottom: 10vw;
+				}
+
+				p {
+					font-size: 14px;
+					padding-bottom: 15px;
+					margin-bottom: unset;
+					border-bottom: 1px solid #BBBBBB;
+
+					@media only screen and (max-width: 768px) {
+						font-size: 3.73vw;
+						padding-bottom: 4vw;
+					}
+				}
+
+				footer {
+					margin-top: 20px;
+					text-align: right;
+					color: #555555;
+
+					@media only screen and (max-width: 768px) {
+						margin-top: 5.33vw;
+					}
+				}
 				
 				&:before {
 					content: "\275D";
@@ -1612,15 +1715,43 @@ section {
 					top: 0;
 					transform: translateY(-25%);
 					color: #007CD8;
+					margin-bottom: 4vw;
 				}
 			}
 
-			img {
-				width: 100%;
-				margin-bottom: 50px;
+			figure {
+				margin-bottom: 40px;
+				@media only screen and (max-width: 768px) {
+					margin-bottom: 10vw;
+				}
+
+				img {
+					width: 100%;
+					border-radius: 8px;
+					margin-bottom: unset;
+				}
+
+				figcaption {
+					font-size: 12px;
+					line-height: 1.8;
+					margin-top: 2em;
+
+					@media only screen and (max-width: 768px) {
+						font-size: 3.2vw;
+						margin-top: 5.33vw;
+					}
+				}
 			}
 
 			table {
+				margin-bottom: 40px;
+				border-collapse: collapse;
+				width: 100%;
+				@media only screen and (max-width: 768px) {
+					margin-bottom: 10vw;
+					width: unset;
+				}
+
 				th, td {
 					font: 14px/1.8 Noto Sans JP;
 					border: 1px solid #BBBBBB;
@@ -1638,16 +1769,53 @@ section {
 			a {
 				color: #FE2C55;
 				text-decoration: underline !important;
+				@include transition(all, 0.4s, ease);
 
 				&:hover {
-					color: #111111;
-					text-decoration: none !important;
+					opacity: 0.6;
 				}
+			}
+
+			.box {
+			    position: relative;
+			    padding: 40px 40px 35px;
+			    border: 1px solid #BBBBBB;
+			    margin-bottom : 40px;
+			    margin-top: calc(40px + 0.5em);
+			    border-radius: 8px;
+			    font-size: 16px;
+			    line-height: 1.8;
+			    color: #111111;
+
+			    @media only screen and (max-width: 768px) {
+			    	font-size: 3.73vw;
+			    	padding: 10.66vw 5.33vw 16vw;
+			    	border-radius: 2.13vw;
+			    }
+			}
+
+			.box::before {
+				position: absolute;
+			    display: inline-block;
+			    box-sizing: border-box;
+			    line-height: 1;
+			    color: #111111;
+			    content: attr(title);
+			    background: $color-white;
+			    font-weight: bold;
+			    padding-left: 0.8em;
+			    padding-right: 0.8em;
+			    top: -0.5em;
+			    left: 1.5em;
+			    font-size: 16px;
+
+			    @media only screen and (max-width: 768px) {
+			    	font-size: 4.2vw;
+			    }
 			}
 
 			@media only screen and (max-width: 768px) {
 				h2 {
-					border-width: 4px;
 					font-size: 5.33vw;
 				}
 
@@ -1659,14 +1827,14 @@ section {
 					font-size: 4.2vw;
 				}
 
-				ul li, ol li {
+				ul li:not(.ez-toc-link), ol li:not(.ez-toc-link) {
 					font-size: 4.2vw;
 				}
 
 				blockquote {
 					font-size: 3.73vw;
 					padding: 3em 1.5em;
-					margin-top: 1em;
+					margin-top: 2em;
 
 					&:before {
 						font-size: 6em;
@@ -1698,7 +1866,7 @@ section {
 			margin-left: -6.4vw;
 			margin-right: -6.4vw;
 			dt {
-				font: bold 5.33vw / 1.26 "Montserrat";
+				font: bold 5.33vw / 1.26 $font-montserrat;
 				text-align: center;
 				margin-bottom: 1em;
 			}
@@ -1742,7 +1910,7 @@ section {
 				margin-right: -6.4vw;
 			}
 			dt {
-                font: bold 20px / 1.5 "YuGothic", "Yu Gothic Medium";
+                font: bold 20px / 1.5 $font-base;
                 margin-bottom: 1.6em;
                 padding-top: 40px;
                 border-top: 1px solid #BBBBBB;
@@ -1754,7 +1922,7 @@ section {
 			}
 			dd {
 				@include display-flex;
-				font: 14px / 1.8 "YuGothic", "Yu Gothic Medium";
+				font: 14px / 1.8 $font-base;
 				font-weight: 700;
 				@media only screen and (max-width: 768px) {
 					font-size: 3.73vw;
@@ -1827,7 +1995,7 @@ section {
 			span {
 				width: 40px;
 				text-align: center;
-				font: 12px / 15px Montserrat;
+				font: 12px / 15px $font-montserrat;
 				font-weight: 700;
 				display: block;
 				overflow: visible;
@@ -1863,6 +2031,20 @@ section {
 	}
 
 	&.section--related {
+		padding-top: 160px;
+		position: relative;
+
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			left: 20px;
+			right: 20px;
+			top: 0;
+			height: 1px;
+			background: #BBBBBB;
+		}
+
 		.content-wrapper .header h3 {
 			font-size: 40px;
 			line-height: 1.2;
@@ -1893,7 +2075,7 @@ section {
 		position: relative;
 		display: block;
 		width: 3em;
-		font-family: "Montserrat";
+		font-family: $font-montserrat;
 		text-align: center;
 		cursor: pointer;
 		font-size: 20px;
@@ -1975,7 +2157,7 @@ section {
 
 .mw_wp_form {
 	.form-title {
-		font: bold 20px/1.5 "YuGothic", "Yu Gothic Medium";
+		font: bold 20px/1.5 $font-base;
 		color: #111111;
 		padding-bottom: 12px;
 		border-bottom: 2px solid #555555;
@@ -2106,11 +2288,15 @@ section {
 	.shared-counts-button {
 		width: 40px;
 		text-align: center;
-		font: 12px / 15px Montserrat;
+		font: 12px / 15px $font-montserrat;
 		font-weight: 700;
 		display: block;
 		overflow: visible;
 		text-decoration: none !important;
+
+		&:hover {
+			opacity: 1;
+		}
 
 		.shared-counts-icon-label {
 			width: 40px;
@@ -2172,55 +2358,101 @@ section {
 	}
 }
 
-#ez-toc-container {
+#toc_container {
 	border-radius: 8px;
 	border: 1px solid #BBBBBB;
-	padding: 40px 40px 80px;
+	padding: 40px 40px 20px;
+	margin-bottom: 80px;
+
 	@media only screen and (max-width: 768px) {
-		padding: 5.33vw 5.33vw 10vw;
+		padding: 5.33vw 5.33vw 2.66vw;
+		margin-bottom: 21.33vw;
 	}
 
-	.ez-toc-title {
+	.toc_title {
 		text-align: center;
-		font: bold 20px / 1.4 "YuGothic", "Yu Gothic Medium";
+		font: bold 20px / 1.4 $font-base;
+		margin-bottom: 20px;
+
+		.toc_toggle {
+			font-size: 16px;
+			margin-left: 0.8em;
+		}
+
 		@media only screen and (max-width: 768px) {
 			font-size: 5.33vw;
 			line-height: 1.3;
+			margin-bottom: 5.33vw;
+
+			.toc_toggle {
+				font-size: 4.2vw;
+			}
 		}
 	}
 
-	nav {
+	.toc_list {
+		position: relative;
+		list-style: none;
+		padding-left: unset;
+		margin-bottom: unset;
+		@include transition-all;
+		overflow: hidden;
+
 		ul {
 			list-style: none;
+			margin-bottom: unset;
+			padding-left: unset;
 		}
 
-		.ez-toc-list {
+		li {
 			padding-left: unset;
-			font: 14px / 1.2 "YuGothic", "Yu Gothic Medium";
+			font: 14px / 1.6 $font-base;
 			@media only screen and (max-width: 768px) {
 				font-size: 3.73vw;
-				line-height: 1.2;
+				line-height: 1.6;
 			}
 			color: #111111;
 
-			.ez-toc-list-level-1,
-			.ez-toc-list-level-2,
-			.ez-toc-list-level-3,
-			.ez-toc-list-level-4 {
+			li {
 				padding-left: 40px;
 				@media only screen and (max-width: 768px) {
-					padding-left: 8.5vw;
+					padding-left: 1.5em;
 				}
 			}
 
-			.ez-toc-link {
+			a {
+				font: 14px / 1.6 $font-base;
+				@media only screen and (max-width: 768px) {
+					font-size: 3.73vw;
+					line-height: 1.6;
+				}
 				display: block;
-				border-bottom: 2px solid #BBBBBB;
+				border-bottom: 1px solid #BBBBBB;
 				color: #111111;
 				padding-top: 0.5em;
 				padding-bottom: 0.5em;
 				text-decoration: none !important;
+				letter-spacing: -0.05em;
 			}
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: $color-white;
+		}
+	}
+
+	&.collapsed {
+		overflow: hidden;
+		.toc_list {
+			max-height: 0;
+			overflow: hidden;
 		}
 	}
 }

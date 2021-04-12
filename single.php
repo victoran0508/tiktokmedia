@@ -13,15 +13,16 @@
                     <summary class="summary">
                         <div class="top">
                             <span class="category category--<?php echo get_the_category()[0]->slug; ?>"><?php echo str_replace('-', ' ', strtoupper(get_category(the_category_ID(false))->slug)); ?></span>
+                            <span class="refresh">
                             <?php 
                                 if (get_the_time() == get_the_modified_time()) {
                             ?>
-                            <span class="refresh">
-                                <i class="fa fa-redo"></i><time><?php the_modified_time('Y.m.d'); ?></time>
-                            </span>
+                                <i class="fa fa-redo"></i>
                             <?php
                                 }
                             ?>
+                                <time><?php the_modified_time('Y.m.d'); ?></time>
+                            </span>
                         </div>
                         <h1><?php the_title(); ?></h1>
                         <p class="keyword-panel">
