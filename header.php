@@ -59,11 +59,11 @@
                                     <dt>SERVICE</dt>
                                     <dd>サービス</dd>
                                 </a>
-                                <a>
+                                <a href="<?php home_url(); ?>/category/event">
                                     <dt>EVENT</dt>
                                     <dd>セミナー・イベント情報</dd>
                                 </a>
-                                <a>
+                                <a href="<?php home_url(); ?>/document">
                                     <dt>DOCUMENT</dt>
                                     <dd>お役立ち資料</dd>
                                 </a>

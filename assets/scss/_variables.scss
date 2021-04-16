@@ -3,8 +3,8 @@
 /* 変数 */
 // ベーシックカラー
 $color-white: #FFFFFF;
-$color-black: #000000;
-$color-gray1: #191819;
+$color-black: #111111;
+$color-gray1: #111111;
 $color-gray2: #b8b8b8;
 $color-gray3: #797979;
 $color-gray4: #f9f9f9;
@@ -24,9 +24,6 @@ $color-header: $color-gray2;
 // フォント
 $font-base: YuGothic, "Yu Gothic Medium", "Yu Gothic", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, Verdana, Meiryo, sans-serif;
 $font-montserrat: 'Montserrat', sans-serif;
-
-
-$font-family-text: $font-base;
 
 // フォントサイス
 $font-size-xxxxxxxl: 51px;

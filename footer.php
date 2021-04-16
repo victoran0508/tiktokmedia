@@ -50,10 +50,10 @@
                         <dt class="header">CONTENTS</dt>
                         <dt><a href="https://star-creation.com/service/">SERVICE</a></dt>
                         <dd><a href="https://star-creation.com/service/">サービス</a></dd>
-                        <dt><a>EVENT</a></dt>
-                        <dd><a>セミナー・イベント情報</a></dd>
-                        <dt><a>DOCUMENT</a></dt>
-                        <dd><a>お役立ち資料</a></dd>
+                        <dt><a href="<?php home_url(); ?>/category/event">EVENT</a></dt>
+                        <dd><a href="<?php home_url(); ?>/category/event">セミナー・イベント情報</a></dd>
+                        <dt><a href="<?php home_url(); ?>/document">DOCUMENT</a></dt>
+                        <dd><a href="<?php home_url(); ?>/document">お役立ち資料</a></dd>
                         <dt><a href="https://star-creation.com/contact/">CONTACT</a></dt>
                         <dd><a href="https://star-creation.com/contact/">お問い合わせ</a></dd>
                     </dl>

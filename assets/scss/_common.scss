@@ -75,7 +75,7 @@
 			font: 14px / 22px $font-base;
 			color: #111111;
 			padding: 40px 20px 20px;
-			border-radius: 10px;
+			border-radius: 8px;
 			@media only screen and (max-width: 768px) {
 				padding-left: unset;
 				padding-right: unset;
@@ -146,7 +146,7 @@
 							}
 							background: $color-white;
 							height: 100%;
-							border-radius: 10px;
+							border-radius: 8px;
 
 							dt {
 								> a:hover {
@@ -190,7 +190,7 @@
 
 							.datetime {
 								position: absolute;
-								left: 40px;
+								left: 20px;
 								bottom: 20px;
 								@media (max-width: 768px) {
 									left: 11.4vw;
@@ -216,16 +216,44 @@
 							height: 370px;
 							@media only screen and (max-width: 768px) {
 								height: 96vw;
+								padding-left: 6.4vw;
+								padding-right: 6.4vw;
 							}
 
-							dl dt p {
-								padding-left: 60px;
-								background: left 20px top 40px url(../img/document-pdf.png) no-repeat;
-								background-size: 20px;
-								@media only screen and (max-width: 768px) {
-									padding-left: 14vw;
-									background: left 5vw top 5vw url(../img/document-pdf.png) no-repeat;
-									background-size: 5vw;
+							dl {
+								margin: unset;
+								padding: unset;
+								position: relative;
+
+								a {
+									position: absolute;
+									left: 0;
+									top: 0;
+									width: 100%;
+									height: 100%;
+									display: block;
+									z-index: 1;
+								}
+
+								dt p {
+									padding-left: 60px;
+									background: left 20px top 40px url(../img/document-pdf.png) no-repeat;
+									background-size: 20px;
+									@media only screen and (max-width: 768px) {
+										padding-left: 14vw;
+										background: left 5vw top 5vw url(../img/document-pdf.png) no-repeat;
+										background-size: 5vw;
+									}
+								}
+
+								dt p, dt img, dd span {
+									@include transition(all, 0.4s, ease);
+								}
+
+								&:hover {
+									dt p, dt img, dd {
+    									opacity: 0.6;
+									}
 								}
 							}
 						}
@@ -560,6 +588,7 @@
 	position: relative;
 	color: #111111;
 	cursor: pointer;
+	font-family: $font-base;
 
 	@media (max-width: 768px) {
 		font-size: 3.2vw;
@@ -680,7 +709,7 @@ section.hero {
     .hero-title-background, .hero-title {
     	position: absolute;
 		top: 50%;
-		left: 0.3rem;
+		left: 0;
 		transform: translateY(-50%);
 		width: 31.25vw;
 		max-width: 400px;
@@ -835,6 +864,7 @@ section {
     	padding-left: 6.4vw;
 	    padding-right: 6.4vw;
     }
+	color: $color-black;
 
 	.content-wrapper {
 		.header {
@@ -1007,7 +1037,7 @@ section {
 
                 		.datetime {
                 			position: absolute;
-                			left: 40px;
+                			left: 20px;
                 			bottom: 20px;
                 			@media (max-width: 768px) {
 								left: 11.4vw;
@@ -1489,7 +1519,7 @@ section {
 	}
 
 	&.section--article {
-		position: relative;
+// 		position: relative;
 		margin-bottom: 80px;
 
 		@media only screen and (max-width: 768px) {
@@ -1712,7 +1742,7 @@ section {
 					display: block;
 					position: absolute;
 					left: 20px;
-					top: 0;
+					top: -20px;
 					transform: translateY(-25%);
 					color: #007CD8;
 					margin-bottom: 4vw;
@@ -1842,7 +1872,7 @@ section {
 						display: block;
 						position: absolute;
 						left: 5.33vw;
-						top: 0;
+						top: -2.13vw;
 						transform: translateY(-25%);
 						color: #007CD8;
 					}
@@ -1923,7 +1953,7 @@ section {
 			dd {
 				@include display-flex;
 				font: 14px / 1.8 $font-base;
-				font-weight: 700;
+				font-weight: 400;
 				@media only screen and (max-width: 768px) {
 					font-size: 3.73vw;
 				}
@@ -1948,6 +1978,11 @@ section {
                         font-size: 16px;
                         line-height: 1.6;
                         font-weight: bold;
+					}
+
+					small {
+						font-weight: 400;
+						font-size: 14px;
 					}
 				}
 
@@ -2032,12 +2067,18 @@ section {
 
 	&.section--related {
 		padding-top: 160px;
+		@media only screen and (max-width: 768px) {
+			padding-top: 0;
+		}
 		position: relative;
 
 		&:after {
 			content: "";
 			position: absolute;
 			display: block;
+			@media only screen and (max-width: 768px) {
+				display: none;
+			}
 			left: 20px;
 			right: 20px;
 			top: 0;
@@ -2143,7 +2184,7 @@ section {
 @media only screen and (max-width: 768px) {
 	.wp-pagenavi {
 		margin-top: 8vw;
-		@include justify-content-space-between;
+// 		@include justify-content-space-between;
 
 		> * {
 			font-size: 3.73vw;
@@ -2174,7 +2215,7 @@ section {
 		}
 
 		dt {
-			font: 16px/1.8;
+			font: 16px/1.8 $font-base;
 			color: #111111;
 			@media only screen and (max-width: 768px) {
 				font-size: 4.2vw;
@@ -2272,6 +2313,9 @@ section {
 	top: 160px;
 	left: calc(50vw - 590px);
 	z-index: 5;
+	@media only screen and (max-width: 1240px) {
+		display: none;
+	}
 	@media only screen and (max-width: 1200px) {
 		top: 160px;
 		left: 10px;
@@ -2454,5 +2498,16 @@ section {
 			max-height: 0;
 			overflow: hidden;
 		}
+	}
+}
+
+.view-more, .view-all, .view-detail {
+	font-family: $font-montserrat;
+}
+
+.mw_wp_form.mw_wp_form_input {
+	padding-bottom: 80px;
+	@media only screen and (max-width: 768px) {
+		padding-bottom: 21.33vw;
 	}
 }

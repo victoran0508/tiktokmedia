@@ -47,30 +47,46 @@ jQuery(function($){
 			$('.page-header').removeClass('header-sticky');
 		}
 
+		$('.shared-counts-wrap').css('position', 'fixed');
+		$('.shared-counts-wrap').css('top', '160px');
+		$('.shared-counts-wrap').css('bottom', 'unset');
+		if ($(window).width() > 1200) {
+			$('.shared-counts-wrap').css('left', 'calc(50vw - 590px)');
+		} else if ($(window).width() > 1080) {
+			$('.shared-counts-wrap').css('left', '10px');
+		} else {
+			$('.shared-counts-wrap').css('left', '10px');
+		}
+
 		if ($('.shared-counts-wrap').offset().top + $('.shared-counts-wrap').height() > $('.about-author dd').offset().top + $('.about-author dd').height()) {
 			$('.shared-counts-wrap').css('position', 'absolute');
-			$('.shared-counts-wrap').css('bottom', '100px');
-			$('.shared-counts-wrap').css('top', 'auto');
-			if ($(window).width() > 1200) {
-				$('.shared-counts-wrap').css('left', '-41px');
-			} else if ($(window).width() > 1080) {
-				$('.shared-counts-wrap').css('left', 'calc(559px - 50vw)');
-			} else {
-				$('.shared-counts-wrap').css('left', '10px');
-			}
+			$('.shared-counts-wrap').css('top', ($('.about-author dd').offset().top + $('.about-author dd').height() - $('.shared-counts-wrap').height()) + 'px');
 		}
-		if ($('.about-author dd').position().top + $('.about-author dd').height() - $(window).scrollTop() > 80 + $('.shared-counts-wrap').height()) {
-			$('.shared-counts-wrap').css('position', 'fixed');
-			$('.shared-counts-wrap').css('top', '160px');
-			$('.shared-counts-wrap').css('bottom', 'unset');
-			if ($(window).width() > 1200) {
-				$('.shared-counts-wrap').css('left', 'calc(50vw - 590px)');
-			} else if ($(window).width() > 1080) {
-				$('.shared-counts-wrap').css('left', '10px');
-			} else {
-				$('.shared-counts-wrap').css('left', '10px');
-			}
-		}
+
+		// if ($('.shared-counts-wrap').offset().top + $('.shared-counts-wrap').height() > $('.about-author dd').offset().top + $('.about-author dd').height()) {
+		// 	$('.shared-counts-wrap').css('position', 'absolute');
+		// 	$('.shared-counts-wrap').css('bottom', '100px');
+		// 	$('.shared-counts-wrap').css('top', 'auto');
+		// 	if ($(window).width() > 1200) {
+		// 		$('.shared-counts-wrap').css('left', '-42px');
+		// 	} else if ($(window).width() > 1080) {
+		// 		$('.shared-counts-wrap').css('left', 'calc(558px - 50vw)');
+		// 	} else {
+		// 		$('.shared-counts-wrap').css('left', '10px');
+		// 	}
+		// }
+		// if ($('.about-author dd').position().top + $('.about-author dd').height() - $(window).scrollTop() > 80 + $('.shared-counts-wrap').height()) {
+		// 	$('.shared-counts-wrap').css('position', 'fixed');
+		// 	$('.shared-counts-wrap').css('top', '160px');
+		// 	$('.shared-counts-wrap').css('bottom', 'unset');
+		// 	if ($(window).width() > 1200) {
+		// 		$('.shared-counts-wrap').css('left', 'calc(50vw - 590px)');
+		// 	} else if ($(window).width() > 1080) {
+		// 		$('.shared-counts-wrap').css('left', '10px');
+		// 	} else {
+		// 		$('.shared-counts-wrap').css('left', '10px');
+		// 	}
+		// }
 	});
 
 	$('.menu').off('click').on('click', function(){
