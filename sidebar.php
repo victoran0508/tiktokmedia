@@ -5,7 +5,10 @@
                 </dt>
                 <dd>
                 <?php
-                    $popularpost = new WP_Query( array( 'posts_per_page' => 5, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+                    // 人気順による選択ロジック
+                    // $popularpost = new WP_Query( array( 'posts_per_page' => 5, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+                    // カスタムオーダによる選択ロジック
+                    $popularpost = new WP_Query( array( 'posts_per_page' => 5 ) );
                     while ( $popularpost->have_posts() ) : $popularpost->the_post();
                 ?>
                     <article>

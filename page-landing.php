@@ -4,7 +4,10 @@
         <section class="hero section--topmargin">
             <div class="hero-carousel">
             <?php
-                $popularpost = new WP_Query( array( 'posts_per_page' => 3, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+                // 人気順による選択ロジック
+                // $popularpost = new WP_Query( array( 'posts_per_page' => 3, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+                // カスタムオーダによる選択ロジック
+                $popularpost = new WP_Query( array( 'posts_per_page' => 3 ) );
                 while ( $popularpost->have_posts() ) : $popularpost->the_post();
             ?>
                 <!-- div class="hero-item" style="background: right center url(<?php // the_post_thumbnail_url(); ?>) no-repeat; background-size: contain;" -->
@@ -200,7 +203,10 @@
                         <dd class="body">
                             <ul>
                             <?php
-                                $popularpost = new WP_Query( array( 'posts_per_page' => 5, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+                                // 人気順による選択ロジック
+                                // $popularpost = new WP_Query( array( 'posts_per_page' => 5, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+                                // カスタムオーダによる選択ロジック
+                                $popularpost = new WP_Query( array( 'posts_per_page' => 5 ) );
                                 while ( $popularpost->have_posts() ) : $popularpost->the_post();
                             ?>
                                 <li class="item">
